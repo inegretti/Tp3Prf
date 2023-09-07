@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.UserFragment" >
+
+    <TextView
+        android:id="@+id/txtusuario"
+        android:layout_width="147dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="173dp"
+        android:layout_marginTop="189dp"
+        android:layout_marginEnd="181dp"
+        android:layout_marginBottom="42dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnRut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRut"
+        android:layout_width="163dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="34dp"
+        android:text="Rutinas"
+        app:layout_constraintBottom_toTopOf="@+id/btnConfig"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtusuario" />
+
+    <Button
+        android:id="@+id/btnConfig"
+        android:layout_width="164dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="202dp"
+        android:text="Configuracion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRut" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
