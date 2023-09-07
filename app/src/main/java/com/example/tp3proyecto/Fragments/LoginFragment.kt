@@ -52,7 +52,7 @@ class LoginFragment : Fragment() {
                     if(usuario.name=="Admin"){
                         val action = LoginFragmentDirections.actionLoginFragmentToAdminFragment()
                        findNavController().navigate(action)
-                        findNavController().navigateUp()
+                       // findNavController().navigateUp()
 
                     }else{
                         val action = LoginFragmentDirections.actionLoginFragmentToUserFragment(usuario)
