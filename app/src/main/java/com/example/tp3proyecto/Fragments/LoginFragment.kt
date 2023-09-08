@@ -11,6 +11,7 @@ import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.R
+import com.example.tp3proyecto.Repository.Repositorio
 import com.google.android.material.snackbar.Snackbar
 
 class LoginFragment : Fragment() {
@@ -20,7 +21,7 @@ class LoginFragment : Fragment() {
     lateinit var contraseña: EditText
     lateinit var btn: Button
     var lista= mutableListOf<Usuario>()
-
+    var lista2:Repositorio=Repositorio()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,9 +44,10 @@ class LoginFragment : Fragment() {
         super.onStart()
         btn.setOnClickListener() {
             var e:String= email.text.toString()
-
+            /*
             var usuario=lista.find {it.Email==e}
             Snackbar.make(v, "usuario ${usuario}", Snackbar.LENGTH_LONG).show()
+
             if(usuario!=null){
                 if(contraseña.text.toString() == usuario.password){
 
@@ -69,8 +71,38 @@ class LoginFragment : Fragment() {
                 Snackbar.make(v, "No existe un usuario registrado con ese mail", Snackbar.LENGTH_LONG).show()
             }
 
+*/
+            var usuario=lista2.lista.find {it.Email==e}
+            Snackbar.make(v, "usuario ${usuario}", Snackbar.LENGTH_LONG).show()
+            if(usuario!=null){
+                if(contraseña.text.toString() == usuario.password){
+
+                    if(usuario.name=="Admin"){
+                        val action = LoginFragmentDirections.actionLoginFragmentToAdminFragment()
+                        findNavController().navigate(action)
+                        // findNavController().navigateUp()
+
+                    }else{
+                        val action = LoginFragmentDirections.actionLoginFragmentToUserFragment(usuario)
+                        findNavController().navigate(action)
+                    }
+
+
+                    Snackbar.make(v, "Bienvenido ${usuario.name}", Snackbar.LENGTH_LONG).show()
+                }else{
+                    Snackbar.make(v, "Contraseña incorrecta", Snackbar.LENGTH_LONG).show()
+                }
+
+            }else{
+                Snackbar.make(v, "No existe un usuario registrado con ese mail", Snackbar.LENGTH_LONG).show()
+            }
+
+
+        }
+
+
+
 
         }
 
     }
-}
