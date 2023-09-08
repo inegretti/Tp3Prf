@@ -50,7 +50,7 @@ class AdapterUsuario(var lista: MutableList<Usuario>,var onClick:(Int)->Unit):Re
 
     override fun onBindViewHolder(holder: UsuarioHolder, position: Int) {
         //interacion de los metodos
-        holder.setDatos("Nombre:${lista[position].name} Email: ${lista[position].Email}")
+        holder.setDatos("Nombre:${lista[position].name} Email: ${lista[position].Email} Peso actual:${lista[position].pesoActual} kg Altura: ${lista[position].altura}mts")
         holder.setContrasenia(lista[position].password)
         //al presionarlo
         holder.getCard().setOnClickListener {

@@ -46,5 +46,9 @@
         android:id="@+id/adminFragment"
         android:name="com.example.tp3proyecto.Fragments.AdminFragment"
         android:label="fragment_admin"
-        tools:layout="@layout/fragment_admin" />
+        tools:layout="@layout/fragment_admin" >
+        <argument
+            android:name="usuarios"
+            app:argType="com.example.tp3proyecto.Repository.Repositorio" />
+    </fragment>
 </navigation>
