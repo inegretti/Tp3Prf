@@ -36,10 +36,10 @@ class UserFragment : Fragment() {
         var z = UserFragmentArgs.fromBundle(requireArguments())
         txt.text="Bienvenido ${z.usuario.name} }"
         btnRut.setOnClickListener() {
-            Snackbar.make(v, "llego a la rutina", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
         }
         btnCon.setOnClickListener(){
-            Snackbar.make(v, "Llego a la configuracion", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
         }
     }
 
