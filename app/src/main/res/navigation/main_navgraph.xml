@@ -50,5 +50,20 @@
         <argument
             android:name="usuarios"
             app:argType="com.example.tp3proyecto.Repository.Repositorio" />
+        <action
+            android:id="@+id/action_adminFragment_to_userAdmFragment"
+            app:destination="@id/userAdmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userAdmFragment"
+        android:name="com.example.tp3proyecto.Fragments.UserAdmFragment"
+        android:label="fragment_user_adm"
+        tools:layout="@layout/fragment_user_adm" >
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <argument
+            android:name="lista"
+            app:argType="com.example.tp3proyecto.Repository.Repositorio" />
     </fragment>
 </navigation>

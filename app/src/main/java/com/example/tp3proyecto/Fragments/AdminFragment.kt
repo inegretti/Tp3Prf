@@ -1,8 +1,6 @@
 package com.example.tp3proyecto.Fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3proyecto.Adapters.AdapterUsuario
 import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.R
+import com.example.tp3proyecto.Repository.Repositorio
 import com.google.android.material.snackbar.Snackbar
 
 class AdminFragment : Fragment() {
@@ -47,7 +46,16 @@ class AdminFragment : Fragment() {
         adapter= AdapterUsuario(z.usuarios.lista){
                 // es lo que envia el adapter
                 position->
-            Snackbar.make(v,"click en ${position}",Snackbar.LENGTH_LONG).show()
+            if(z.usuarios.lista.get(position).name=="Admin"){
+                Snackbar.make(v,"No se puede acceder al usuario admin, contactarse con servicio tecnico",Snackbar.LENGTH_LONG).show()
+            }else{
+                var t:Usuario=z.usuarios.lista.get(position)
+                var r: Repositorio=z.usuarios
+                val action = AdminFragmentDirections.actionAdminFragmentToUserAdmFragment(t,r)
+                findNavController().navigate(action)
+            }
+
+
 
         }
         //configurar
