@@ -21,7 +21,7 @@ data class Usuario(
 
     }
 
-    fun agregarARutina(dia:Int,ejercicio:String){
+    fun agregarARutina(dia:Int,ejercicio:Ejercicio){
         semana[dia].agregarEjercicio(ejercicio)
 
     }

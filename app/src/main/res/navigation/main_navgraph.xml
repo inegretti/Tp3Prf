@@ -41,7 +41,14 @@
         android:id="@+id/rutinasFragment"
         android:name="com.example.tp3proyecto.Fragments.RutinasFragment"
         android:label="fragment_rutinas"
-        tools:layout="@layout/fragment_rutinas" />
+        tools:layout="@layout/fragment_rutinas" >
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <action
+            android:id="@+id/action_rutinasFragment_to_rutinaDetail"
+            app:destination="@id/rutinaDetail" />
+    </fragment>
     <fragment
         android:id="@+id/adminFragment"
         android:name="com.example.tp3proyecto.Fragments.AdminFragment"
@@ -65,5 +72,25 @@
         <argument
             android:name="lista"
             app:argType="com.example.tp3proyecto.Repository.Repositorio" />
+    </fragment>
+    <fragment
+        android:id="@+id/ejercicioDetail"
+        android:name="com.example.tp3proyecto.Fragments.EjercicioDetail"
+        android:label="fragment_ejercicio_detail"
+        tools:layout="@layout/fragment_ejercicio_detail" />
+    <fragment
+        android:id="@+id/rutinaDetail"
+        android:name="com.example.tp3proyecto.Fragments.RutinaDetail"
+        android:label="fragment_rutina_detail"
+        tools:layout="@layout/fragment_rutina_detail" >
+        <action
+            android:id="@+id/action_rutinaDetail_to_ejercicioDetail"
+            app:destination="@id/ejercicioDetail" />
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <argument
+            android:name="posicion"
+            app:argType="integer" />
     </fragment>
 </navigation>

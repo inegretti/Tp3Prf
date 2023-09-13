@@ -1,6 +1,5 @@
 package com.example.tp3proyecto.Fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.R
 import com.google.android.material.snackbar.Snackbar
 
@@ -36,7 +36,10 @@ class UserFragment : Fragment() {
         var z = UserFragmentArgs.fromBundle(requireArguments())
         txt.text="Bienvenido ${z.usuario.name} }"
         btnRut.setOnClickListener() {
-            Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
+            //Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
+            val action =  UserFragmentDirections.actionUserFragmentToRutinasFragment(z.usuario)
+            findNavController().navigate(action)
+            Snackbar.make(v, "En construccion", Snackbar.LENGTH_LONG).show()
         }
         btnCon.setOnClickListener(){
             Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()

@@ -6,9 +6,9 @@ data class Dia(
     var nombre:String,
 
 ){
-    var rutina= mutableListOf<String>()
+    var rutina= mutableListOf<Ejercicio>()
 
-    fun agregarEjercicio(ej:String){
+    fun agregarEjercicio(ej:Ejercicio){
         rutina.add((ej))
     }
 }
