@@ -13,11 +13,12 @@ data class Usuario(
     var pesoActual:Double,
     var altura:Double
                    ):Parcelable{
-    var semana: Array<Dia> = arrayOf<Dia>(Dia("Lunes"),Dia("Martes"),Dia("Miercoles"),
+    var semana= mutableListOf<Dia>(Dia("Lunes"),Dia("Martes"),Dia("Miercoles"),
         Dia("Jueves"),Dia("Viernes"),Dia("Sabado"),Dia("Domingo"))
     var historialPeso: MutableList<Double> = mutableListOf()
     init {
         historialPeso.add(pesoActual)
+
     }
 
     fun agregarARutina(dia:Int,ejercicio:String){
