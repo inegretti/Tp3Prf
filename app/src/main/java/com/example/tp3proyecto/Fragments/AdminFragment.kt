@@ -23,6 +23,7 @@ class AdminFragment : Fragment() {
     lateinit var t:TextView
     lateinit var adapter:AdapterUsuario
     lateinit var btn:Button
+    lateinit var btnIng:Button
 
 
 
@@ -35,6 +36,7 @@ class AdminFragment : Fragment() {
         r=v.findViewById(R.id.adminView)
         t.text="Administrador de Usuarios"
         btn=v.findViewById(R.id.btnLgAd)
+        btnIng=v.findViewById(R.id.btnIngUs)
 
         return v
     }
@@ -65,6 +67,12 @@ class AdminFragment : Fragment() {
         btn.setOnClickListener(){
             findNavController().navigateUp()
             Snackbar.make(v,"Adios Admin",Snackbar.LENGTH_LONG).show()
+        }
+
+        btnIng.setOnClickListener(){
+            val action = AdminFragmentDirections.actionAdminFragmentToAgregarUsuarioFragment(z.usuarios)
+            findNavController().navigate(action)
+            Snackbar.make(v,"funciona el boton ",Snackbar.LENGTH_LONG).show()
         }
 
     }
