@@ -36,16 +36,17 @@ class RutinasFragment : Fragment() {
         var z = RutinasFragmentArgs.fromBundle(requireArguments())
         adapterD= AdapterDia(z.usuario.semana){position->
             Snackbar.make(v,"posicion ${position}",Snackbar.LENGTH_LONG).show()
-
-           // if(position>0) {
-                val rut = z.usuario.semana[position]
-                Snackbar.make(v, "prueba ${rut.rutina.get(0).nombre}", Snackbar.LENGTH_LONG).show()
-                val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(z.usuario,position)
-                findNavController().navigate(action)
-            //}else{
-             //   Snackbar.make(v, "no hay rutina registrada", Snackbar.LENGTH_LONG).show()
-           // }
-
+            val rut = z.usuario.semana[position]
+           if(rut.rutina.isEmpty()) {
+               Snackbar.make(v, "no hay rutina registrada", Snackbar.LENGTH_LONG).show()
+               // val rut = z.usuario.semana[position]
+               // Snackbar.make(v, "prueba ${rut.rutina.isEmpty()}", Snackbar.LENGTH_LONG).show()
+               // val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(z.usuario,position)
+               // findNavController().navigate(action)
+            }else {
+               val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(z.usuario,position)
+               findNavController().navigate(action)
+           }
 
         }
         d.layoutManager=LinearLayoutManager(context)

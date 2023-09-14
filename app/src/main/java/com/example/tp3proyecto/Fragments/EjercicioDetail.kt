@@ -21,9 +21,14 @@ class EjercicioDetail : Fragment() {
     ): View? {
         v=inflater.inflate(R.layout.fragment_ejercicio_detail, container, false)
         t=v.findViewById(R.id.ejNom)
+
         return v
     }
 
-
+    override fun onStart() {
+        super.onStart()
+        var z=EjercicioDetailArgs.fromBundle(requireArguments())
+        t.text="nombre ${z.nombre} series ${z.series} repeticiones${z.repeticiones}"
+    }
 
 }

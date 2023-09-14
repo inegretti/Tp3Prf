@@ -77,7 +77,20 @@
         android:id="@+id/ejercicioDetail"
         android:name="com.example.tp3proyecto.Fragments.EjercicioDetail"
         android:label="fragment_ejercicio_detail"
-        tools:layout="@layout/fragment_ejercicio_detail" />
+        tools:layout="@layout/fragment_ejercicio_detail" >
+        <argument
+            android:name="nombre"
+            app:argType="string" />
+        <argument
+            android:name="repeticiones"
+            app:argType="integer" />
+        <argument
+            android:name="series"
+            app:argType="integer" />
+        <argument
+            android:name="media"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/rutinaDetail"
         android:name="com.example.tp3proyecto.Fragments.RutinaDetail"

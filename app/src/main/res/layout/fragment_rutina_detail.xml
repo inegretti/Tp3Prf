@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout8"
     android:layout_width="match_parent"
@@ -8,9 +9,27 @@
 
     <TextView
         android:id="@+id/tituloRutinaDetail"
-        android:layout_width="143dp"
-        android:layout_height="117dp"
+        android:layout_width="130dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="147dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="148dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rutinaDet"
+        android:layout_width="373dp"
+        android:layout_height="666dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloRutinaDetail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

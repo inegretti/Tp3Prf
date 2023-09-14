@@ -8,9 +8,11 @@ class Ejercicio(
     var series:Int
     var repeticiones:Int
 
+
     init {
         series=0
         repeticiones=0
+
     }
 
     fun cambiarSerie(serie:Int){

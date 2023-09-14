@@ -7,6 +7,11 @@ data class Dia(
 
 ){
     var rutina= mutableListOf<Ejercicio>()
+    var estado:Boolean
+
+    init {
+        estado=false
+    }
 
     fun agregarEjercicio(ej:Ejercicio){
         rutina.add((ej))
