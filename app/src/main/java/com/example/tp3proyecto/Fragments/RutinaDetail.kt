@@ -39,7 +39,8 @@ class RutinaDetail : Fragment() {
             val rut = z.usuario.semana[position]
             Snackbar.make(v, "prueba ${rut.rutina.get(0).nombre}", Snackbar.LENGTH_LONG).show()
             var ej= z.usuario.semana[z.posicion].rutina[position]
-            val action =  RutinaDetailDirections.actionRutinaDetailToEjercicioDetail(ej.nombre,ej.repeticiones,ej.series,ej.media)
+
+            val action =  RutinaDetailDirections.actionRutinaDetailToEjercicioDetail(z.usuario,z.clearance,ej,z.posicion)
             findNavController().navigate(action)
         }
         r.layoutManager= LinearLayoutManager(context)

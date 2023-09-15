@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_rutinasFragment_to_rutinaDetail"
             app:destination="@id/rutinaDetail" />
+        <argument
+            android:name="clereance"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/adminFragment"
@@ -75,6 +78,9 @@
         <argument
             android:name="lista"
             app:argType="com.example.tp3proyecto.Repository.Repositorio" />
+        <action
+            android:id="@+id/action_userAdmFragment_to_rutinasFragment"
+            app:destination="@id/rutinasFragment" />
     </fragment>
     <fragment
         android:id="@+id/ejercicioDetail"
@@ -82,17 +88,17 @@
         android:label="fragment_ejercicio_detail"
         tools:layout="@layout/fragment_ejercicio_detail" >
         <argument
-            android:name="nombre"
-            app:argType="string" />
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
         <argument
-            android:name="repeticiones"
+            android:name="clearence"
+            app:argType="boolean" />
+        <argument
+            android:name="ejercicio"
+            app:argType="com.example.tp3proyecto.Entidades.Ejercicio" />
+        <argument
+            android:name="posicion"
             app:argType="integer" />
-        <argument
-            android:name="series"
-            app:argType="integer" />
-        <argument
-            android:name="media"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/rutinaDetail"
@@ -108,6 +114,12 @@
         <argument
             android:name="posicion"
             app:argType="integer" />
+        <argument
+            android:name="clearance"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_rutinaDetail_to_agregarEjercicioFragment2"
+            app:destination="@id/agregarEjercicioFragment" />
     </fragment>
     <fragment
         android:id="@+id/agregarUsuarioFragment"
@@ -118,4 +130,9 @@
             android:name="usuarios"
             app:argType="com.example.tp3proyecto.Repository.Repositorio" />
     </fragment>
+    <fragment
+        android:id="@+id/agregarEjercicioFragment"
+        android:name="com.example.tp3proyecto.Fragments.AgregarEjercicioFragment"
+        android:label="fragment_agregar_ejercicio"
+        tools:layout="@layout/fragment_agregar_ejercicio" />
 </navigation>

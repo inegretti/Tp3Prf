@@ -9,17 +9,34 @@
 
     <TextView
         android:id="@+id/ejNom"
-        android:layout_width="211dp"
-        android:layout_height="386dp"
+        android:layout_width="191dp"
+        android:layout_height="329dp"
         android:layout_marginStart="176dp"
-        android:layout_marginTop="109dp"
+        android:layout_marginTop="116dp"
         android:layout_marginEnd="177dp"
-        android:layout_marginBottom="236dp"
+        android:layout_marginBottom="59dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnBajaEj"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBajaEj"
+        android:layout_width="194dp"
+        android:layout_height="123dp"
+        android:layout_marginStart="137dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="137dp"
+        android:layout_marginBottom="264dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="Eliminar Ejercicio"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ejNom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

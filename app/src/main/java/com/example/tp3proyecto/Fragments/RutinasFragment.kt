@@ -44,7 +44,7 @@ class RutinasFragment : Fragment() {
                // val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(z.usuario,position)
                // findNavController().navigate(action)
             }else {
-               val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(z.usuario,position)
+               val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(z.usuario,position,z.clereance)
                findNavController().navigate(action)
            }
 

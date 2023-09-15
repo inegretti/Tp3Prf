@@ -37,7 +37,7 @@ class UserFragment : Fragment() {
         txt.text="Bienvenido ${z.usuario.name} }"
         btnRut.setOnClickListener() {
             //Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
-            val action =  UserFragmentDirections.actionUserFragmentToRutinasFragment(z.usuario)
+            val action =  UserFragmentDirections.actionUserFragmentToRutinasFragment(z.usuario,false)
             findNavController().navigate(action)
             Snackbar.make(v, "En construccion", Snackbar.LENGTH_LONG).show()
         }
