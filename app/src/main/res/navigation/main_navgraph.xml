@@ -134,5 +134,12 @@
         android:id="@+id/agregarEjercicioFragment"
         android:name="com.example.tp3proyecto.Fragments.AgregarEjercicioFragment"
         android:label="fragment_agregar_ejercicio"
-        tools:layout="@layout/fragment_agregar_ejercicio" />
+        tools:layout="@layout/fragment_agregar_ejercicio" >
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <argument
+            android:name="posicion"
+            app:argType="integer" />
+    </fragment>
 </navigation>
