@@ -2,6 +2,7 @@ package com.example.tp3proyecto.Fragments
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,8 +26,8 @@ class AgregarEjercicioFragment : Fragment() {
     private lateinit var ingRep:TextView
     private lateinit var ingSer:TextView
     private lateinit var btn:Button
-    var rep:Repositorio = Repositorio()
-    //var z=AgregarEjercicioFragmentArgs.fromBundle(requireArguments())
+    //var rep:Repositorio = Repositorio()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,10 +38,16 @@ class AgregarEjercicioFragment : Fragment() {
         ingSer=v.findViewById(R.id.ingSer)
         btn = v.findViewById(R.id.btnAAR)
 
+        for (ejercicio in Repositorio.listaC) {
+            Log.d("ejercicio nro${Repositorio.listaC.indexOf(ejercicio)}",ejercicio.nombre)
+
+        }
+
 
         var op:MutableList<String> = mutableListOf()
-        for (ejercicio in rep.listaE) {
+        for (ejercicio in Repositorio.listaC) {
             op.add(ejercicio.nombre)
+
         }
         var  adapter:ArrayAdapter<String>
         adapter = ArrayAdapter<String>(requireActivity(),android.R.layout.simple_spinner_item,op)
@@ -60,7 +67,7 @@ class AgregarEjercicioFragment : Fragment() {
                     Snackbar.LENGTH_LONG
                 ).show()
             } else {
-                var obj = rep.listaE.find { it.nombre == spin.selectedItem.toString() }
+                var obj = Repositorio.listaC.find { it.nombre == spin.selectedItem.toString() }
                 if (obj != null) {
                     obj.series = Integer.parseInt(ingSer.text.toString())
                     obj.repeticiones = Integer.parseInt(ingRep.text.toString())

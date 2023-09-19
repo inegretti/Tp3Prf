@@ -66,6 +66,9 @@
         <action
             android:id="@+id/action_adminFragment_to_agregarUsuarioFragment"
             app:destination="@id/agregarUsuarioFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_agregarEjNewFragment"
+            app:destination="@id/agregarEjNewFragment" />
     </fragment>
     <fragment
         android:id="@+id/userAdmFragment"
@@ -141,5 +144,14 @@
         <argument
             android:name="posicion"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarEjNewFragment"
+        android:name="com.example.tp3proyecto.Fragments.AgregarEjNewFragment"
+        android:label="fragment_agregar_ej_new"
+        tools:layout="@layout/fragment_agregar_ej_new" >
+        <argument
+            android:name="listaEjercicio"
+            app:argType="com.example.tp3proyecto.Repository.Repositorio" />
     </fragment>
 </navigation>

@@ -1,6 +1,7 @@
 package com.example.tp3proyecto.Fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -56,6 +57,7 @@ class RutinaDetail : Fragment() {
         r.layoutManager= LinearLayoutManager(context)
         r.adapter=ejAdap
         btn.setOnClickListener() {
+            Log.d("prueba:","llego hasta el boton")
             val action = RutinaDetailDirections.actionRutinaDetailToAgregarEjercicioFragment2(z.usuario,z.posicion)
             findNavController().navigate(action)
         }

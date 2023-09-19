@@ -38,11 +38,19 @@ class RutinasFragment : Fragment() {
             Snackbar.make(v,"posicion ${position}",Snackbar.LENGTH_LONG).show()
             val rut = z.usuario.semana[position]
            if(rut.rutina.isEmpty()) {
-               Snackbar.make(v, "no hay rutina registrada", Snackbar.LENGTH_LONG).show()
+
                // val rut = z.usuario.semana[position]
                // Snackbar.make(v, "prueba ${rut.rutina.isEmpty()}", Snackbar.LENGTH_LONG).show()
                // val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(z.usuario,position)
                // findNavController().navigate(action)
+               if(z.clereance){
+                   val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(z.usuario,position,z.clereance)
+                   findNavController().navigate(action)
+               }else{
+                   Snackbar.make(v, "no hay rutina registrada", Snackbar.LENGTH_LONG).show()
+               }
+
+
             }else {
                val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(z.usuario,position,z.clereance)
                findNavController().navigate(action)
