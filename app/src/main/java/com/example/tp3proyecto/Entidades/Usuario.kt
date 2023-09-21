@@ -2,6 +2,9 @@ package com.example.tp3proyecto.Entidades
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.util.*
 
 @Parcelize
 data class Usuario(
@@ -15,10 +18,11 @@ data class Usuario(
                    ):Parcelable{
     var semana= mutableListOf<Dia>(Dia("Lunes"),Dia("Martes"),Dia("Miercoles"),
         Dia("Jueves"),Dia("Viernes"),Dia("Sabado"),Dia("Domingo"))
-    var historialPeso: MutableList<Double> = mutableListOf()
+    var historialPeso: MutableList<RegistroPeso> = mutableListOf()
 
     init {
-        historialPeso.add(pesoActual)
+        val r= LocalDateTime.now()
+        historialPeso.add(RegistroPeso(pesoActual, Date(r.year,r.month.value,r.dayOfMonth)))
 
     }
 

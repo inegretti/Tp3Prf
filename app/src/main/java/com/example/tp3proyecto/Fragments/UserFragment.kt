@@ -42,7 +42,9 @@ class UserFragment : Fragment() {
             Snackbar.make(v, "En construccion", Snackbar.LENGTH_LONG).show()
         }
         btnCon.setOnClickListener(){
-            Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
+
+            val action =  UserFragmentDirections.actionUserFragmentToConfigFragment(z.usuario)
+            findNavController().navigate(action)
         }
     }
 

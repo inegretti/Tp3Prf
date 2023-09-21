@@ -2,8 +2,11 @@ package com.example.tp3proyecto.Repository
 
 import android.os.Parcelable
 import com.example.tp3proyecto.Entidades.Ejercicio
+import com.example.tp3proyecto.Entidades.RegistroPeso
 import com.example.tp3proyecto.Entidades.Usuario
 import kotlinx.parcelize.Parcelize
+import java.time.LocalDate
+import java.util.*
 
 @Parcelize
 class Repositorio():Parcelable{

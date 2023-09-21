@@ -36,7 +36,14 @@
         android:id="@+id/configFragment"
         android:name="com.example.tp3proyecto.Fragments.ConfigFragment"
         android:label="fragment_config"
-        tools:layout="@layout/fragment_config" />
+        tools:layout="@layout/fragment_config" >
+        <action
+            android:id="@+id/action_configFragment_to_registroPesajeHoyFragment"
+            app:destination="@id/registroPesajeHoyFragment" />
+        <argument
+            android:name="receptor"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+    </fragment>
     <fragment
         android:id="@+id/rutinasFragment"
         android:name="com.example.tp3proyecto.Fragments.RutinasFragment"
@@ -153,5 +160,14 @@
         <argument
             android:name="listaEjercicio"
             app:argType="com.example.tp3proyecto.Repository.Repositorio" />
+    </fragment>
+    <fragment
+        android:id="@+id/registroPesajeHoyFragment"
+        android:name="com.example.tp3proyecto.Fragments.RegistroPesajeHoyFragment"
+        android:label="fragment_registro_pesaje_hoy"
+        tools:layout="@layout/fragment_registro_pesaje_hoy" >
+        <argument
+            android:name="recep"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
     </fragment>
 </navigation>

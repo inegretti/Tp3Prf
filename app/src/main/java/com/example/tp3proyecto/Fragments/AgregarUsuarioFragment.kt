@@ -23,6 +23,8 @@ class AgregarUsuarioFragment : Fragment() {
     private lateinit var email:EditText
     private lateinit var contrasenia:EditText
     private lateinit var confirmacionContrasenia:EditText
+    private lateinit var peso:EditText
+    private lateinit var altura:EditText
     private lateinit var btnIng:Button
 
 
@@ -35,6 +37,8 @@ class AgregarUsuarioFragment : Fragment() {
         email=v.findViewById(R.id.ingEmail)
         contrasenia=v.findViewById(R.id.ingCon)
         confirmacionContrasenia=v.findViewById(R.id.confCon)
+        peso=v.findViewById(R.id.ingPesKg)
+        altura=v.findViewById(R.id.ingAlt)
         btnIng=v.findViewById(R.id.btnConIng)
         return v
     }
@@ -45,12 +49,15 @@ class AgregarUsuarioFragment : Fragment() {
         btnIng.setOnClickListener(){
 
 
-            if(nombre.text.isEmpty() || contrasenia.text.isEmpty() || contrasenia.text.isEmpty()){
+            if(nombre.text.isEmpty() || contrasenia.text.isEmpty() || contrasenia.text.isEmpty() || altura.text.isEmpty() || peso.text.isEmpty()){
                 Snackbar.make(v,"No puede haber campos vacios", Snackbar.LENGTH_LONG).show()
             }else{
+            if(peso.text.toString().toDouble()<=10 || altura.text.toString().toDouble()<=1 ){
+                Snackbar.make(v,"la altura no puede ser menor a 1 mt y el peso no pude ser menor a 10", Snackbar.LENGTH_LONG).show()
+                }else{
                 if(z.usuarios.lista.find {it.Email==email.text.toString()} == null){
                     if(contrasenia.text.toString() == confirmacionContrasenia.text.toString()){
-                        z.usuarios.lista.add(Usuario((z.usuarios.lista.size-1),nombre.text.toString(),contrasenia.text.toString(),email.text.toString(),"",0.0,0.0))
+                        z.usuarios.lista.add(Usuario((z.usuarios.lista.size-1),nombre.text.toString(),contrasenia.text.toString(),email.text.toString(),"",peso.text.toString().toDouble(),altura.text.toString().toDouble()))
                         Snackbar.make(v,"Usuario Registrados", Snackbar.LENGTH_LONG).show()
                         findNavController().navigateUp()
 
@@ -64,6 +71,9 @@ class AgregarUsuarioFragment : Fragment() {
                     Snackbar.make(v,"ya existe un usuario registrado con ese mail",
                         Snackbar.LENGTH_LONG).show()
                 }
+                }
+
+
             }
 
         }
