@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.RegistroPeso
@@ -32,6 +33,7 @@ class ConfigFragment : Fragment() {
     //lateinit var grp:GraphView
     lateinit var btn:Button
     lateinit var chart:LineChart
+    lateinit var bmiI:TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +43,7 @@ class ConfigFragment : Fragment() {
         v= inflater.inflate(R.layout.fragment_config, container, false)
         //grp= v.findViewById(R.id.graph)
         chart=v.findViewById(R.id.chart)
+        bmiI=v.findViewById(R.id.bmi)
         btn=v.findViewById(R.id.btnIrIngPes)
 
         var dataValues:ArrayList<Entry>
@@ -73,6 +76,11 @@ class ConfigFragment : Fragment() {
         chart.getXAxis().setDrawLabels(false);
        // chart.getLegend().setEnabled(false);
 
+        var bmi:Float
+
+        bmi=(z.receptor.pesoActual/(z.receptor.altura*z.receptor.altura)).toFloat()
+        bmiI.text="BMI/IMC:  ${bmi.toString()}"
+
         return v
     }
 
@@ -80,41 +88,6 @@ class ConfigFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         var z = ConfigFragmentArgs.fromBundle(requireArguments())
-
-        /*
-        var series:LineGraphSeries<DataPoint>
-        series = LineGraphSeries<DataPoint>()
-        series.title="Evolucion"
-        series.isDrawDataPoints=true
-        series.thickness=8
-
-        grp.title="Evolucion"
-        grp.titleTextSize = 60F
-        var grid:GridLabelRenderer
-        grid=grp.gridLabelRenderer
-        grid.verticalAxisTitle="Peso en Kg"
-        grid.horizontalAxisTitle="Nro de Mes"
-        grid.textSize=20f
-
-
-        grp.getViewport().setXAxisBoundsManual(true);
-        grp.getGridLabelRenderer().setNumHorizontalLabels(3);
-        grp.getViewport().setMinX(z.receptor.historialPeso.get(0).fecha.time.toDouble());
-        grp.getViewport().setMaxX(z.receptor.historialPeso.get(z.receptor.historialPeso.lastIndex).fecha.time.toDouble() + 3*24*60*60*1000); // + 3 days
-
-
-
-
-        for(Registro  in z.receptor.historialPeso){
-            Log.d( "prueba", "fecha:  ${Registro.fecha} mes ${Registro.fecha.month}")
-            series.appendData(DataPoint(Registro.fecha,Registro.peso),true, z.receptor.historialPeso.size)
-
-
-        }
-        grp.addSeries(series)
-        series.color=Color.RED
-
-         */
         btn.setOnClickListener(){
             val action = ConfigFragmentDirections.actionConfigFragmentToRegistroPesajeHoyFragment(z.receptor)
             findNavController().navigate(action)
