@@ -37,7 +37,7 @@ class AdapterEjercicio(var lista:MutableList<Ejercicio>,var onClick:(Int)->Unit)
 
     override fun onBindViewHolder(holder: EjercicioHolder, position: Int) {
 
-        holder.setEjercicio("${lista[position].nombre} cantidad de series: ${lista[position].series}")
+        holder.setEjercicio("${lista[position].nombre} cantidad de series: ${lista[position].series} estado: ${if(lista[position].estado)"completo" else "incompleto"}")
         holder.getCard().setOnClickListener {
             //que envie la posicion
             onClick(position)

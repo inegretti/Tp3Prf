@@ -9,16 +9,16 @@
 
     <TextView
         android:id="@+id/ejNom"
-        android:layout_width="191dp"
-        android:layout_height="329dp"
+        android:layout_width="239dp"
+        android:layout_height="135dp"
         android:layout_marginStart="176dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="177dp"
-        android:layout_marginBottom="59dp"
+        android:layout_marginBottom="20dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/btnBajaEj"
+        app:layout_constraintBottom_toTopOf="@+id/comentario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,9 +27,9 @@
         android:layout_width="194dp"
         android:layout_height="123dp"
         android:layout_marginStart="137dp"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="137dp"
-        android:layout_marginBottom="264dp"
+        android:layout_marginBottom="152dp"
         android:backgroundTint="@color/design_default_color_error"
         android:text="Eliminar Ejercicio"
         android:textColor="@color/black"
@@ -37,6 +37,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCom" />
+
+    <EditText
+        android:id="@+id/comentario"
+        android:layout_width="240dp"
+        android:layout_height="174dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="86dp"
+        android:ems="10"
+        android:hint="deja tu comentario acerca de la rutina"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ejNom" />
+
+    <Button
+        android:id="@+id/btnCom"
+        android:layout_width="180dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="16dp"
+        android:text="Confirmar Completo"
+        app:layout_constraintBottom_toTopOf="@+id/btnBajaEj"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comentario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

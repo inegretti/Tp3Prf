@@ -9,11 +9,15 @@ class Ejercicio(
 ) : Parcelable {
     var series:Int
     var repeticiones:Int
+    var comentario:String
+    var estado:Boolean
 
 
     init {
         series=0
         repeticiones=0
+        comentario=""
+        estado=false
 
     }
 
