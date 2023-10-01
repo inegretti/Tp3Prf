@@ -37,6 +37,8 @@ class UserFragment : Fragment() {
         txt.text="Bienvenido ${z.usuario.name} }"
         btnRut.setOnClickListener() {
             //Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
+
+            // esto es una pagina de transicion por ello no seria necesario el tener que pasar los datos al view model
             val action =  UserFragmentDirections.actionUserFragmentToRutinasFragment(z.usuario,false)
             findNavController().navigate(action)
             Snackbar.make(v, "En construccion", Snackbar.LENGTH_LONG).show()

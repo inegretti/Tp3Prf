@@ -13,6 +13,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.Ejercicio
+import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.R
 import com.example.tp3proyecto.Repository.Repositorio
 import com.google.android.material.snackbar.Snackbar
@@ -68,10 +69,16 @@ class AgregarEjercicioFragment : Fragment() {
                 ).show()
             } else {
                 var obj = Repositorio.listaC.find { it.nombre == spin.selectedItem.toString() }
+
                 if (obj != null) {
-                    obj.series = Integer.parseInt(ingSer.text.toString())
-                    obj.repeticiones = Integer.parseInt(ingRep.text.toString())
-                    z.usuario.semana[z.posicion].rutina.add(obj)
+                    var copia:Ejercicio
+                    copia= Ejercicio(obj.id,obj.nombre,obj.media)
+                    copia.series=Integer.parseInt(ingSer.text.toString())
+                        copia.repeticiones=Integer.parseInt(ingRep.text.toString())
+                    //obj.series = Integer.parseInt(ingSer.text.toString())
+                    //obj.repeticiones = Integer.parseInt(ingRep.text.toString())
+                    //z.usuario.semana[z.posicion].rutina.add(obj)
+                    z.usuario.semana[z.posicion].rutina.add(copia)
                     Snackbar.make(v, "Se ha agregado el ejercicio", Snackbar.LENGTH_LONG).show()
                     findNavController().navigateUp()
                 } else {

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.RegistroPeso
 import com.example.tp3proyecto.R
@@ -19,6 +20,7 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+import com.google.android.material.snackbar.Snackbar
 import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.GridLabelRenderer
 import com.jjoe64.graphview.series.DataPoint
@@ -34,7 +36,7 @@ class ConfigFragment : Fragment() {
     lateinit var btn:Button
     lateinit var chart:LineChart
     lateinit var bmiI:TextView
-
+    // la libreria no lo toma desde el viewmodel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -59,7 +61,8 @@ class ConfigFragment : Fragment() {
 
         var lineDataSet1:LineDataSet
         lineDataSet1=LineDataSet(dataValues,"Evolucion de peso entre actualizaciones")
-
+        lineDataSet1.setColors(Color.RED)
+        lineDataSet1.setCircleColor(Color.BLACK)
         var dataSets:ArrayList<ILineDataSet>
         dataSets= ArrayList()
         dataSets.add(lineDataSet1)
@@ -71,9 +74,9 @@ class ConfigFragment : Fragment() {
         chart.setNoDataText("No data")
         var desc:Description
         desc=Description()
-
         chart.description=desc
         chart.getXAxis().setDrawLabels(false);
+
        // chart.getLegend().setEnabled(false);
 
         var bmi:Float

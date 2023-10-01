@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,19 @@ class RutinaDetail : Fragment() {
     private lateinit var r:RecyclerView
     private lateinit var ejAdap:AdapterEjercicio
     private lateinit var btn:Button
+
+    private lateinit var viewModel: RutinaDetailViewModel
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel= ViewModelProvider(requireActivity()).get(RutinaDetailViewModel::class.java)
+        //                            si aca pongo this solo aplicaria a este fragment
+        //                            con activity aplica a toda la actividad(lo vuelvo un singleton)
+        // TODO: Use the ViewModel
+        viewModel.z=RutinaDetailArgs.fromBundle(requireArguments())
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,27 +52,27 @@ class RutinaDetail : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        var z=RutinaDetailArgs.fromBundle(requireArguments())
-        if(z.clearance){
+        //var z=RutinaDetailArgs.fromBundle(requireArguments())
+        if(viewModel.z.clearance){
             btn.setVisibility(View.VISIBLE)
 
         }else{
             btn.setVisibility(View.INVISIBLE)
         }
-        t.text=z.usuario.semana[z.posicion].nombre
-        ejAdap=AdapterEjercicio(z.usuario.semana[z.posicion].rutina){position->
-            val rut = z.usuario.semana[position]
+        t.text=viewModel.z.usuario.semana[viewModel.z.posicion].nombre
+        ejAdap=AdapterEjercicio(viewModel.z.usuario.semana[viewModel.z.posicion].rutina){position->
+            //val rut = z.usuario.semana[position]
             //Snackbar.make(v, "prueba ${rut.rutina.get(0).nombre}", Snackbar.LENGTH_LONG).show()
-            var ej= z.usuario.semana[z.posicion].rutina[position]
+            var ej= viewModel.z.usuario.semana[viewModel.z.posicion].rutina[position]
 
-            val action =  RutinaDetailDirections.actionRutinaDetailToEjercicioDetail(z.usuario,z.clearance,ej,z.posicion)
+            val action =  RutinaDetailDirections.actionRutinaDetailToEjercicioDetail(viewModel.z.usuario,viewModel.z.clearance,ej,viewModel.z.posicion)
             findNavController().navigate(action)
         }
         r.layoutManager= LinearLayoutManager(context)
         r.adapter=ejAdap
         btn.setOnClickListener() {
             Log.d("prueba:","llego hasta el boton")
-            val action = RutinaDetailDirections.actionRutinaDetailToAgregarEjercicioFragment2(z.usuario,z.posicion)
+            val action = RutinaDetailDirections.actionRutinaDetailToAgregarEjercicioFragment2(viewModel.z.usuario,viewModel.z.posicion)
             findNavController().navigate(action)
         }
     }
