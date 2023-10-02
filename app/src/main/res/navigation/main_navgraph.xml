@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navgraph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.tp3proyecto.Fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.tp3proyecto.Fragments.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" >
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <action
+            android:id="@+id/action_userFragment_to_configFragment"
+            app:destination="@id/configFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_rutinasFragment"
+            app:destination="@id/rutinasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.example.tp3proyecto.Fragments.ConfigFragment"
+        android:label="fragment_config"
+        tools:layout="@layout/fragment_config" >
+        <action
+            android:id="@+id/action_configFragment_to_registroPesajeHoyFragment"
+            app:destination="@id/registroPesajeHoyFragment" />
+        <argument
+            android:name="receptor"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+    </fragment>
+    <fragment
+        android:id="@+id/rutinasFragment"
+        android:name="com.example.tp3proyecto.Fragments.RutinasFragment"
+        android:label="fragment_rutinas"
+        tools:layout="@layout/fragment_rutinas" >
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <action
+            android:id="@+id/action_rutinasFragment_to_rutinaDetail"
+            app:destination="@id/rutinaDetail" />
+        <argument
+            android:name="clereance"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.example.tp3proyecto.Fragments.AdminFragment"
+        android:label="fragment_admin"
+        tools:layout="@layout/fragment_admin" >
+        <argument
+            android:name="usuarios"
+            app:argType="com.example.tp3proyecto.Repository.Repositorio" />
+        <action
+            android:id="@+id/action_adminFragment_to_userAdmFragment"
+            app:destination="@id/userAdmFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_agregarUsuarioFragment"
+            app:destination="@id/agregarUsuarioFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_agregarEjNewFragment"
+            app:destination="@id/agregarEjNewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userAdmFragment"
+        android:name="com.example.tp3proyecto.Fragments.UserAdmFragment"
+        android:label="fragment_user_adm"
+        tools:layout="@layout/fragment_user_adm" >
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <argument
+            android:name="lista"
+            app:argType="com.example.tp3proyecto.Repository.Repositorio" />
+        <action
+            android:id="@+id/action_userAdmFragment_to_rutinasFragment"
+            app:destination="@id/rutinasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ejercicioDetail"
+        android:name="com.example.tp3proyecto.Fragments.EjercicioDetail"
+        android:label="fragment_ejercicio_detail"
+        tools:layout="@layout/fragment_ejercicio_detail" >
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <argument
+            android:name="clearence"
+            app:argType="boolean" />
+        <argument
+            android:name="ejercicio"
+            app:argType="com.example.tp3proyecto.Entidades.Ejercicio" />
+        <argument
+            android:name="posicion"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/rutinaDetail"
+        android:name="com.example.tp3proyecto.Fragments.RutinaDetail"
+        android:label="fragment_rutina_detail"
+        tools:layout="@layout/fragment_rutina_detail" >
+        <action
+            android:id="@+id/action_rutinaDetail_to_ejercicioDetail"
+            app:destination="@id/ejercicioDetail" />
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <argument
+            android:name="posicion"
+            app:argType="integer" />
+        <argument
+            android:name="clearance"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_rutinaDetail_to_agregarEjercicioFragment2"
+            app:destination="@id/agregarEjercicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarUsuarioFragment"
+        android:name="com.example.tp3proyecto.Fragments.AgregarUsuarioFragment"
+        android:label="fragment_agregar_usuario"
+        tools:layout="@layout/fragment_agregar_usuario" >
+        <argument
+            android:name="usuarios"
+            app:argType="com.example.tp3proyecto.Repository.Repositorio" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarEjercicioFragment"
+        android:name="com.example.tp3proyecto.Fragments.AgregarEjercicioFragment"
+        android:label="fragment_agregar_ejercicio"
+        tools:layout="@layout/fragment_agregar_ejercicio" >
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <argument
+            android:name="posicion"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarEjNewFragment"
+        android:name="com.example.tp3proyecto.Fragments.AgregarEjNewFragment"
+        android:label="fragment_agregar_ej_new"
+        tools:layout="@layout/fragment_agregar_ej_new" >
+        <argument
+            android:name="listaEjercicio"
+            app:argType="com.example.tp3proyecto.Repository.Repositorio" />
+    </fragment>
+    <fragment
+        android:id="@+id/registroPesajeHoyFragment"
+        android:name="com.example.tp3proyecto.Fragments.RegistroPesajeHoyFragment"
+        android:label="fragment_registro_pesaje_hoy"
+        tools:layout="@layout/fragment_registro_pesaje_hoy" >
+        <argument
+            android:name="recep"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+    </fragment>
+</navigation>

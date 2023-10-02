@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.AdminFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/adminView"
+        android:layout_width="350dp"
+        android:layout_height="388dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnIngUs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAdm" />
+
+    <TextView
+        android:id="@+id/textAdm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginBottom="4dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/adminView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnIngUs"
+        android:layout_width="143dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="137dp"
+        android:layout_marginBottom="18dp"
+        android:text="Alta de Usuarios"
+        app:layout_constraintBottom_toTopOf="@+id/btnIANE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adminView" />
+
+    <Button
+        android:id="@+id/btnIANE"
+        android:layout_width="148dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="139dp"
+        android:layout_marginBottom="12dp"
+        android:text="Alta Nuevo Ejercicio"
+        app:layout_constraintBottom_toTopOf="@+id/btnLgAd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIngUs" />
+
+    <Button
+        android:id="@+id/btnLgAd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginBottom="107dp"
+        android:text="Cerrar Sesion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIANE" />
+</androidx.constraintlayout.widget.ConstraintLayout>

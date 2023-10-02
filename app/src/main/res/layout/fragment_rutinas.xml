@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.RutinasFragment" >
+
+    <TextView
+        android:id="@+id/rutTit"
+        android:layout_width="108dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="35dp"
+        android:text="Semana"
+        app:layout_constraintBottom_toTopOf="@+id/dias"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dias"
+        android:layout_width="301dp"
+        android:layout_height="593dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="104dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rutTit" />
+</androidx.constraintlayout.widget.ConstraintLayout>
