@@ -40,7 +40,7 @@ class AgregarEjNewFragment : Fragment() {
         btn.setOnClickListener(){
             var z = AgregarEjNewFragmentArgs.fromBundle(requireArguments())
             if(nombre.text.isEmpty()||mult.text.isEmpty()){
-                Snackbar.make(v,"complete todos los campos ", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(v,"Complete todos los campos ", Snackbar.LENGTH_LONG).show()
 
             }else{
                 if(z.listaEjercicio.listaE.find {it.nombre==nombre.text.toString().uppercase()} == null){
@@ -48,7 +48,7 @@ class AgregarEjNewFragment : Fragment() {
                     z.listaEjercicio.listaE.add(Ejercicio(z.listaEjercicio.listaE.size-1,nombre.text.toString().uppercase(),mult.text.toString()))
                     Repositorio.listaC.add(Ejercicio(Repositorio.listaC.size-1,nombre.text.toString().uppercase(),mult.text.toString()))
                     for (ejercicio in  z.listaEjercicio.listaE) {
-                        Log.d("ejercicios:",ejercicio.nombre)
+                        Log.d("Ejercicios:",ejercicio.nombre)
                     }
                     findNavController().navigateUp()
                 } else{

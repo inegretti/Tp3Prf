@@ -9,6 +9,7 @@ class Ejercicio(
 ) : Parcelable {
     var series:Int
     var repeticiones:Int
+    var descripcion:String
     var comentario:String
     var estado:Boolean
 
@@ -16,6 +17,7 @@ class Ejercicio(
     init {
         series=0
         repeticiones=0
+        descripcion=""
         comentario=""
         estado=false
 
@@ -30,6 +32,12 @@ class Ejercicio(
     fun cambiarRepeticiones(repeticion:Int){
         if(repeticion>0){
             repeticiones=repeticion
+        }
+    }
+
+    fun cambiarDescripcion(descNueva:String){
+        if(descNueva.isNotEmpty()){
+            descripcion=descNueva
         }
     }
 }

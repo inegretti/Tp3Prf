@@ -49,7 +49,7 @@ class AgregarUsuarioFragment : Fragment() {
         btnIng.setOnClickListener(){
 
 
-            if(nombre.text.isEmpty() || contrasenia.text.isEmpty() || contrasenia.text.isEmpty() || altura.text.isEmpty() || peso.text.isEmpty()){
+            if(nombre.text.isEmpty() || contrasenia.text.isEmpty() || confirmacionContrasenia.text.isEmpty() || altura.text.isEmpty() || peso.text.isEmpty()){
                 Snackbar.make(v,"No puede haber campos vacios", Snackbar.LENGTH_LONG).show()
             }else{
             if(peso.text.toString().toDouble()<=10 || altura.text.toString().toDouble()<=1 ){
