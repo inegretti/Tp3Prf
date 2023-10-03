@@ -26,6 +26,7 @@ class AgregarEjercicioFragment : Fragment() {
     private lateinit var spin:Spinner
     private lateinit var ingRep:TextView
     private lateinit var ingSer:TextView
+    private lateinit var ingDesc:TextView
     private lateinit var btn:Button
     //var rep:Repositorio = Repositorio()
 
@@ -37,10 +38,11 @@ class AgregarEjercicioFragment : Fragment() {
         spin=v.findViewById(R.id.spinnerEj)
         ingRep=v.findViewById(R.id.ingRep)
         ingSer=v.findViewById(R.id.ingSer)
+        ingDesc=v.findViewById(R.id.ingDesc)
         btn = v.findViewById(R.id.btnAAR)
 
         for (ejercicio in Repositorio.listaC) {
-            Log.d("ejercicio nro${Repositorio.listaC.indexOf(ejercicio)}",ejercicio.nombre)
+            Log.d("Ejercicio nro${Repositorio.listaC.indexOf(ejercicio)}",ejercicio.nombre)
 
         }
 
@@ -61,10 +63,10 @@ class AgregarEjercicioFragment : Fragment() {
 
         var z = AgregarEjercicioFragmentArgs.fromBundle(requireArguments())
         btn.setOnClickListener() {
-            if (ingSer.text.isEmpty() || ingSer.text.isEmpty()) {
+            if (ingSer.text.isEmpty() || ingSer.text.isEmpty() || ingDesc.text.isEmpty()) {
                 Snackbar.make(
                     v,
-                    "los datos no pueden ser vacios o menores a 0",
+                    "Los datos no pueden ser vacios o menores a 0",
                     Snackbar.LENGTH_LONG
                 ).show()
             } else {
@@ -75,6 +77,7 @@ class AgregarEjercicioFragment : Fragment() {
                     copia= Ejercicio(obj.id,obj.nombre,obj.media)
                     copia.series=Integer.parseInt(ingSer.text.toString())
                         copia.repeticiones=Integer.parseInt(ingRep.text.toString())
+                    copia.descripcion=ingDesc.text.toString()
                     //obj.series = Integer.parseInt(ingSer.text.toString())
                     //obj.repeticiones = Integer.parseInt(ingRep.text.toString())
                     //z.usuario.semana[z.posicion].rutina.add(obj)
@@ -84,7 +87,7 @@ class AgregarEjercicioFragment : Fragment() {
                 } else {
                     Snackbar.make(
                         v,
-                        "no se ha encontrado un ejercicio con ese nombre",
+                        "No se ha encontrado un ejercicio con ese nombre",
                         Snackbar.LENGTH_LONG
                     ).show()
                 }

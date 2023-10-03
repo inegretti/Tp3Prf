@@ -1,8 +1,6 @@
 package com.example.tp3proyecto.Fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.service.voice.VoiceInteractionSession.VisibleActivityCallback
 import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.view.isInvisible
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.R
 
@@ -23,6 +20,7 @@ class EjercicioDetail : Fragment() {
     private lateinit var btn: Button
     private lateinit var btnC: Button
     private lateinit var com:EditText
+    private lateinit var desc:EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +29,7 @@ class EjercicioDetail : Fragment() {
         v=inflater.inflate(R.layout.fragment_ejercicio_detail, container, false)
         t=v.findViewById(R.id.ejNom)
         btn= v.findViewById(R.id.btnBajaEj)
+        desc=v.findViewById(R.id.descripcion)
         com=v.findViewById(R.id.comentario)
         btnC=v.findViewById(R.id.btnCom)
 
@@ -40,7 +39,8 @@ class EjercicioDetail : Fragment() {
     override fun onStart() {
         super.onStart()
         var z=EjercicioDetailArgs.fromBundle(requireArguments())
-        t.text="nombre ${z.ejercicio.nombre} series ${z.ejercicio.series} repeticiones${z.ejercicio.repeticiones}"
+        t.text="Nombre ${z.ejercicio.nombre} Series ${z.ejercicio.series} Repeticiones${z.ejercicio.repeticiones}"
+        desc.text= Editable.Factory.getInstance().newEditable(z.ejercicio.descripcion)
         com.text= Editable.Factory.getInstance().newEditable(z.ejercicio.comentario)
         if(z.clearence){
             btn.setVisibility(View.VISIBLE)
@@ -50,6 +50,7 @@ class EjercicioDetail : Fragment() {
 
         }else{
             btn.setVisibility(View.INVISIBLE)
+            desc.isEnabled=false
             if(z.ejercicio.estado){
                 btnC.text="Actualizar comentario"
             }else{
@@ -66,6 +67,7 @@ class EjercicioDetail : Fragment() {
 
         btnC.setOnClickListener(){
             z.ejercicio.estado=true
+            z.ejercicio.descripcion=desc.text.toString()
             z.ejercicio.comentario=com.text.toString()
             findNavController().navigateUp()
         }
