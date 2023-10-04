@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3proyecto.Adapters.AdapterDia
 import com.example.tp3proyecto.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
 class RutinasFragment : Fragment() {
@@ -42,6 +43,10 @@ class RutinasFragment : Fragment() {
         d=v.findViewById(R.id.dias)
         tit=v.findViewById(R.id.rutTit)
         tit.text="Semana"
+
+        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_bar)
+        bottomNavigationView?.visibility = View.VISIBLE
+
         return v
     }
 
