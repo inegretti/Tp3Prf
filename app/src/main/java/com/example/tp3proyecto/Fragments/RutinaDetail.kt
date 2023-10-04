@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3proyecto.Adapters.AdapterEjercicio
 import com.example.tp3proyecto.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
 class RutinaDetail : Fragment() {
@@ -46,6 +47,9 @@ class RutinaDetail : Fragment() {
         t=v.findViewById(R.id.tituloRutinaDetail)
         r=v.findViewById(R.id.rutinaDet)
         btn=v.findViewById(R.id.btnAGR)
+
+        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_bar)
+        bottomNavigationView?.visibility = View.VISIBLE
 
         return v
     }
