@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
 class UserFragment : Fragment() {
@@ -27,6 +28,9 @@ class UserFragment : Fragment() {
         txt=v.findViewById(R.id.txtusuario)
         btnRut=v.findViewById(R.id.btnRut)
         btnCon=v.findViewById(R.id.btnConfig)
+
+        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_bar)
+        bottomNavigationView?.visibility = View.VISIBLE
 
         return v
     }
