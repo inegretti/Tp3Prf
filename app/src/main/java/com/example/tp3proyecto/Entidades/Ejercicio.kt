@@ -5,7 +5,8 @@ import kotlinx.parcelize.Parcelize
 class Ejercicio(
     var id:Int,
     var nombre:String,
-    var media:String
+    var media:String,
+    var imgUrl : String
 ) : Parcelable {
     var series:Int
     var repeticiones:Int
