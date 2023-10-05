@@ -9,10 +9,10 @@
 
     <TextView
         android:id="@+id/ejNom"
-        android:layout_width="239dp"
-        android:layout_height="135dp"
+        android:layout_width="271dp"
+        android:layout_height="72dp"
         android:layout_marginStart="176dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="177dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,12 +20,66 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/comentario"
+        android:layout_width="341dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Deja tu comentario acerca de la rutina"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descripcion"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/descripcion"
+        android:layout_width="287dp"
+        android:layout_height="116dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="57dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Descripcion de ejercicio"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="168dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ejNom"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/btnCom"
+        android:layout_width="164dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="120dp"
+        android:text="Confirmar Completo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comentario" />
+
     <Button
         android:id="@+id/btnBajaEj"
-        android:layout_width="194dp"
-        android:layout_height="123dp"
+        android:layout_width="168dp"
+        android:layout_height="75dp"
         android:layout_marginStart="137dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="137dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/design_default_color_error"
@@ -33,57 +87,9 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCom" />
-
-    <EditText
-        android:id="@+id/comentario"
-        android:layout_width="292dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="Deja tu comentario acerca de la rutina"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btnCom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcion" />
-
-    <Button
-        android:id="@+id/btnCom"
-        android:layout_width="180dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="111dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="10dp"
-        android:text="Confirmar Completo"
-        app:layout_constraintBottom_toTopOf="@+id/btnBajaEj"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comentario" />
-
-    <EditText
-        android:id="@+id/descripcion"
-        android:layout_width="295dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Descripcion de ejercicio"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/comentario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ejNom" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCom"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
