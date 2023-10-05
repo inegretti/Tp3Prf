@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.Ejercicio
 import com.example.tp3proyecto.R
@@ -31,6 +32,7 @@ class AgregarEjNewFragment : Fragment() {
         btn=v.findViewById(R.id.btnIngNewEj)
         nombre=v.findViewById(R.id.ingNewEjNom)
         mult=v.findViewById(R.id.ingNewEjMul)
+
         return v
     }
 
