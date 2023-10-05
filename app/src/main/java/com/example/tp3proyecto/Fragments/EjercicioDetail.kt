@@ -8,9 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.R
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 class EjercicioDetail : Fragment() {
 
@@ -20,6 +23,7 @@ class EjercicioDetail : Fragment() {
     private lateinit var btn: Button
     private lateinit var btnC: Button
     private lateinit var com:EditText
+    private lateinit var imagenDetails : ImageView
     private lateinit var desc:EditText
 
     override fun onCreateView(
@@ -32,6 +36,8 @@ class EjercicioDetail : Fragment() {
         desc=v.findViewById(R.id.descripcion)
         com=v.findViewById(R.id.comentario)
         btnC=v.findViewById(R.id.btnCom)
+        imagenDetails=v.findViewById(R.id.ingNewEjMul)
+
 
         return v
     }
@@ -40,6 +46,21 @@ class EjercicioDetail : Fragment() {
         super.onStart()
         var z=EjercicioDetailArgs.fromBundle(requireArguments())
         t.text="Nombre ${z.ejercicio.nombre} Series ${z.ejercicio.series} Repeticiones${z.ejercicio.repeticiones}"
+
+        val imgUrl = z.ejercicio.media
+        val width = imagenDetails.width
+        val height = imagenDetails.height
+
+        Glide.with(this)
+            .load(imgUrl)
+            .apply(RequestOptions()
+                .override(width, height)
+                .centerInside() // Escala la imagen para que quepa dentro del ImageView
+            )
+            .into(imagenDetails)
+
+
+
         desc.text= Editable.Factory.getInstance().newEditable(z.ejercicio.descripcion)
         com.text= Editable.Factory.getInstance().newEditable(z.ejercicio.comentario)
         if(z.clearence){
