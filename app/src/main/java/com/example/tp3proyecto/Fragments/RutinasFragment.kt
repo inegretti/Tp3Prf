@@ -41,7 +41,7 @@ class RutinasFragment : Fragment() {
         v = inflater.inflate(R.layout.fragment_rutinas, container, false)
         d=v.findViewById(R.id.dias)
         tit=v.findViewById(R.id.rutTit)
-        tit.text="Semana"
+        tit.text="Semana XXX"
         return v
     }
 
