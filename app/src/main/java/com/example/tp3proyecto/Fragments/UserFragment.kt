@@ -34,7 +34,7 @@ class UserFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         var z = UserFragmentArgs.fromBundle(requireArguments())
-        txt.text="Bienvenido ${z.usuario.name} }"
+        txt.text="Bienvenido ${z.usuario.name} "
         btnRut.setOnClickListener() {
             //Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
 
