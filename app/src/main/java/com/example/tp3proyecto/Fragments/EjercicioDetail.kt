@@ -36,7 +36,7 @@ class EjercicioDetail : Fragment() {
         desc=v.findViewById(R.id.descripcion)
         com=v.findViewById(R.id.comentario)
         btnC=v.findViewById(R.id.btnCom)
-        //imagenDetails=v.findViewById(R.id.ingNewEjMul)
+        imagenDetails=v.findViewById(R.id.imgDetail)
 
 
         return v
@@ -46,19 +46,24 @@ class EjercicioDetail : Fragment() {
         super.onStart()
         var z=EjercicioDetailArgs.fromBundle(requireArguments())
         t.text="Nombre ${z.ejercicio.nombre} Series ${z.ejercicio.series} Repeticiones${z.ejercicio.repeticiones}"
-/*
-        val imgUrl = z.ejercicio.media
-        val width = imagenDetails.width
-        val height = imagenDetails.height
 
-        Glide.with(this)
-            .load(imgUrl)
-            .apply(RequestOptions()
-                .override(width, height)
-                .centerInside() // Escala la imagen para que quepa dentro del ImageView
-            )
-            .into(imagenDetails)
-*/
+                val imgUrl = z.ejercicio.media
+                val width = imagenDetails.width
+                val height = imagenDetails.height
+
+                Glide.with(this)
+                    .load(imgUrl)
+                    .apply(RequestOptions()
+                        .override(width, height)
+                        .centerInside() // Escala la imagen para que quepa dentro del ImageView
+                    )
+                    .into(imagenDetails)
+
+
+
+
+
+
 
 
         desc.text= Editable.Factory.getInstance().newEditable(z.ejercicio.descripcion)
