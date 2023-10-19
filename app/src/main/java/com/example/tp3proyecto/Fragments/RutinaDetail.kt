@@ -18,8 +18,6 @@ import com.google.android.material.snackbar.Snackbar
 
 class RutinaDetail : Fragment() {
 
-
-
     private lateinit var v: View
     private lateinit var t:TextView
     private lateinit var r:RecyclerView

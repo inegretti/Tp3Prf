@@ -9,15 +9,19 @@
 
     <TextView
         android:id="@+id/txtusuario"
-        android:layout_width="147dp"
-        android:layout_height="51dp"
+        android:layout_width="144dp"
+        android:layout_height="53dp"
         android:layout_marginStart="173dp"
         android:layout_marginTop="189dp"
         android:layout_marginEnd="181dp"
         android:layout_marginBottom="42dp"
         android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnRut"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,6 +36,7 @@
         android:text="Rutinas"
         app:layout_constraintBottom_toTopOf="@+id/btnConfig"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtusuario" />
 
