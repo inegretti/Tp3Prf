@@ -1,7 +1,6 @@
 package com.example.tp3proyecto.Fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.R
-import com.example.tp3proyecto.Repository.Repositorio
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
@@ -74,10 +71,12 @@ class LoginFragment : Fragment() {
                     }else{
                         val action = LoginFragmentDirections.actionLoginFragmentToUserFragment(viewModel.usuario)
                         findNavController().navigate(action)
+//                        val action = LoginFragmentDirections.actionLoginFragmentToUserFragment()
+//                        findNavController().navigate(action)
                     }
 
 
-                    Snackbar.make(v, "Bienvenido ${viewModel.usuario.name}", Snackbar.LENGTH_LONG).show()
+//                    Snackbar.make(v, "Bienvenido ${viewModel.usuario.name}", Snackbar.LENGTH_LONG).show()
                 }else{
                     Snackbar.make(v, "contraseña incorrecta", Snackbar.LENGTH_LONG).show()
                 }
