@@ -4,12 +4,15 @@ import android.os.Parcelable
 import com.example.tp3proyecto.Entidades.Ejercicio
 import com.example.tp3proyecto.Entidades.RegistroPeso
 import com.example.tp3proyecto.Entidades.Usuario
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.parcelize.Parcelize
 import java.time.LocalDate
 import java.util.*
 
 @Parcelize
 class Repositorio():Parcelable{
+
 
     var lista:MutableList<Usuario> = mutableListOf()
     var listaE:MutableList<Ejercicio> = mutableListOf()
@@ -21,6 +24,7 @@ class Repositorio():Parcelable{
 
      init{
          var admin:Usuario
+         val database = Firebase.firestore
          admin=Usuario(1,"Admin","12345","admin@gmail.com","41444444",0.0,1.8)
         // lista.add(Usuario(1,"Admin","12345","admin@gmail.com","41444444",0.0,1.8)) admin.esAdmin=true
          listaA.add(admin)
