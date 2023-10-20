@@ -6,6 +6,7 @@ import com.example.tp3proyecto.Entidades.RegistroPeso
 import com.example.tp3proyecto.Entidades.Usuario
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+
 import kotlinx.parcelize.Parcelize
 import java.time.LocalDate
 import java.util.*
