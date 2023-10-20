@@ -17,7 +17,10 @@ class UserAdmFragment : Fragment() {
 
 
     private lateinit var v: View
-    private lateinit var t:TextView
+    private lateinit var nombreText:TextView
+    private lateinit var emailText:TextView
+    private lateinit var contraseniaText:TextView
+    private lateinit var pesoAlturaText:TextView
     private lateinit var btn:Button
     private lateinit var btnR:Button
     private lateinit var btnRutina:Button
@@ -26,18 +29,25 @@ class UserAdmFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        v= inflater.inflate(R.layout.fragment_user_adm, container, false)
-        t=v.findViewById(R.id.usDatos)
-        btn=v.findViewById(R.id.btnBaja)
-        btnR=v.findViewById(R.id.btnResetPass)
-        btnRutina=v.findViewById(R.id.btnRutina)
+        v = inflater.inflate(R.layout.fragment_user_adm, container, false)
+        nombreText = v.findViewById(R.id.nombreUsuario)
+        emailText = v.findViewById(R.id.emailUsuario)
+        contraseniaText = v.findViewById(R.id.contraseniaUsuario)
+        pesoAlturaText = v.findViewById(R.id.textPesoAlturaUsuario)
+
+        btn = v.findViewById(R.id.btnBaja)
+        btnR = v.findViewById(R.id.btnResetPass)
+        btnRutina = v.findViewById(R.id.btnRutina)
         return v
     }
 
     override fun onStart() {
         super.onStart()
         var z = UserAdmFragmentArgs.fromBundle(requireArguments())
-        t.text="Nombre: ${z.usuario.name} Altura: ${z.usuario.altura}mts Peso actual: ${z.usuario.pesoActual}kg contraseña: ${z.usuario.password} email: ${z.usuario.Email}"
+        nombreText.text="${z.usuario.name}"
+        pesoAlturaText.text = "Peso actual: ${z.usuario.pesoActual}kg    Altura: ${z.usuario.altura}mts"
+        contraseniaText.text = "Contraseña: ${z.usuario.password}"
+        emailText.text = "Email: ${z.usuario.Email}"
 
         btn.setOnClickListener(){
             z.lista.lista.remove(z.usuario)
@@ -51,7 +61,7 @@ class UserAdmFragment : Fragment() {
 
             z.lista.lista.get(pos).password="password"
             findNavController().navigateUp()
-            Snackbar.make(v,"La contraseñan fue cambiada a password", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(v,"La contraseña fue cambiada a password", Snackbar.LENGTH_LONG).show()
         }
 
 

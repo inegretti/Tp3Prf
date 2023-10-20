@@ -12,14 +12,12 @@
         android:layout_width="350dp"
         android:layout_height="388dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="47dp"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnIngUs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAdm" />
+        tools:layout_editor_absoluteY="136dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textAdm"
@@ -34,50 +32,43 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71" />
 
     <Button
         android:id="@+id/btnIngUs"
         android:layout_width="143dp"
         android:layout_height="56dp"
-        android:layout_marginStart="131dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="137dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="32dp"
         android:text="Alta de Usuarios"
-        app:layout_constraintBottom_toTopOf="@+id/btnIANE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adminView" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="549dp" />
 
     <Button
         android:id="@+id/btnIANE"
         android:layout_width="148dp"
         android:layout_height="58dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="139dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="28dp"
         android:text="Alta Nuevo Ejercicio"
-        app:layout_constraintBottom_toTopOf="@+id/btnLgAd"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.166"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIngUs" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="549dp" />
 
     <Button
         android:id="@+id/btnLgAd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="107dp"
+        android:layout_width="157dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="48dp"
         android:text="Cerrar Sesion"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIANE" />
+        app:layout_constraintTop_toBottomOf="@+id/adminView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
