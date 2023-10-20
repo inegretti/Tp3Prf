@@ -11,58 +11,95 @@
         android:id="@+id/btnRutina"
         android:layout_width="143dp"
         android:layout_height="84dp"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="156dp"
-        android:layout_marginEnd="134dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="100dp"
         android:backgroundTint="@color/purple_700"
         android:text="Rutina"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btnResetPass"
+        app:layout_constraintBottom_toTopOf="@+id/btnBaja"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usDatos" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/usDatos"
-        android:layout_width="332dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="73dp"
-        android:layout_marginEnd="40dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/nombreUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="88dp"
+        android:text="Nombre de Usuario"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/emailUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Email: usuario@email.com"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreUsuario" />
+
+    <TextView
+        android:id="@+id/contraseniaUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Contraseña: ********"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailUsuario" />
+
+    <TextView
+        android:id="@+id/textPesoAlturaUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Peso: "
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contraseniaUsuario" />
 
     <Button
         android:id="@+id/btnBaja"
         android:layout_width="143dp"
         android:layout_height="84dp"
         android:layout_marginStart="134dp"
-        android:layout_marginTop="45dp"
         android:layout_marginEnd="134dp"
-        android:layout_marginBottom="278dp"
+        android:layout_marginBottom="150dp"
         android:backgroundTint="#88130B"
         android:text="Dar Baja"
-        android:textColor="#272525"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnResetPass" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnResetPass"
         android:layout_width="143dp"
         android:layout_height="83dp"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="134dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="100dp"
         android:text="Resetear contraseña"
         app:layout_constraintBottom_toTopOf="@+id/btnBaja"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRutina" />
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

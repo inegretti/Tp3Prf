@@ -8,16 +8,23 @@
     tools:context=".Fragments.AgregarEjercicioFragment" >
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="147dp"
+        android:id="@+id/titulo"
+        android:layout_width="206dp"
         android:layout_height="35dp"
         android:layout_marginStart="134dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="130dp"
         android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-black"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
         android:text="Agregar a Rutina"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/spinnerEj"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,24 +35,24 @@
         android:layout_marginStart="57dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="58dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toTopOf="@+id/ingRep"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
     <Button
         android:id="@+id/btnAAR"
-        android:layout_width="127dp"
-        android:layout_height="89dp"
+        android:layout_width="208dp"
+        android:layout_height="85dp"
         android:layout_marginStart="142dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="142dp"
-        android:layout_marginBottom="80dp"
-        android:text="Button"
+        android:layout_marginBottom="40dp"
+        android:text="Agregar ejercicio a Rutina"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingDesc" />
 
@@ -54,7 +61,7 @@
         android:layout_width="289dp"
         android:layout_height="57dp"
         android:layout_marginStart="101dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
@@ -62,7 +69,7 @@
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/ingSer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerEj" />
 
@@ -71,15 +78,15 @@
         android:layout_width="291dp"
         android:layout_height="51dp"
         android:layout_marginStart="101dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:ems="10"
         android:hint="Ingrese cantidad de series"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/ingDesc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingRep" />
 
@@ -88,16 +95,16 @@
         android:layout_width="280dp"
         android:layout_height="157dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="51dp"
+        android:layout_marginBottom="5dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Descripcion de ejercicio"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toTopOf="@+id/btnAAR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingSer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
