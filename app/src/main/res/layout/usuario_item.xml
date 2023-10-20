@@ -10,29 +10,51 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="wrap_content"
         android:elevation="8dp">
 
         <TextView
-            android:id="@+id/textPas"
+            android:id="@+id/textNombreUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="29dp"
-            android:layout_marginBottom="92dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textUs"
-            tools:layout_editor_absoluteX="41dp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Nombre del Usuario"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textUs"
+            android:id="@+id/textEmailUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="29dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/textPas"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="41dp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Email: ejemplo@example.com"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textNombreUsuario" />
+
+        <TextView
+            android:id="@+id/textContraseniaUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Contraseña: ********"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textEmailUsuario" />
+
+        <TextView
+            android:id="@+id/textPesoUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Peso: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textContraseniaUsuario" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -8,39 +8,44 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.R
-                                                //variable metodo que devuelve vacio
-class AdapterUsuario(var lista: MutableList<Usuario>,var onClick:(Int)->Unit):RecyclerView.Adapter<AdapterUsuario.UsuarioHolder>() {
 
-
+class AdapterUsuario(var lista: MutableList<Usuario>, var onClick: (Int) -> Unit) :
+    RecyclerView.Adapter<AdapterUsuario.UsuarioHolder>() {
 
     class UsuarioHolder(v: View) : RecyclerView.ViewHolder(v) {
-    //interactua con el item
-        //seteamos un intermediario (caso contrario no funciona)
-        var s:View=v
+        var s: View = v
 
-
-        //seteamos el email y el password de los usuarios
-        fun setDatos(datos:String){
-            val txtEmail:TextView= s.findViewById(R.id.textUs)
-            txtEmail.text=datos
+        // Establece el nombre del usuario en negrita
+        fun setNombreUsuario(nombreUsuario: String) {
+            val txtNombreUsuario: TextView = s.findViewById(R.id.textNombreUsuario)
+            txtNombreUsuario.text = nombreUsuario
         }
 
-        fun setContrasenia(contrasenia:String){
-            val txtContrasenia:TextView= s.findViewById(R.id.textPas)
-            txtContrasenia.text=contrasenia
-
+        // Establece el email del usuario
+        fun setEmailUsuario(email: String) {
+            val txtEmailUsuario: TextView = s.findViewById(R.id.textEmailUsuario)
+            txtEmailUsuario.text = "Email: $email"
         }
 
-        //devuelve la carta
-        fun getCard():CardView{
+        // Establece la contraseña del usuario
+        fun setContraseniaUsuario(contrasenia: String) {
+            val txtContraseniaUsuario: TextView = s.findViewById(R.id.textContraseniaUsuario)
+            txtContraseniaUsuario.text = "Contraseña: $contrasenia"
+        }
+
+        // Establece el peso y la altura del usuario en la misma línea
+        fun setPesoAlturaUsuario(peso: Double, altura: Double) {
+            val txtPesoAlturaUsuario: TextView = s.findViewById(R.id.textPesoUsuario)
+            txtPesoAlturaUsuario.text = "Peso: $peso kg Altura: $altura mts"
+        }
+
+        fun getCard(): CardView {
             return s.findViewById(R.id.cardUsuario)
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuarioHolder {
-        //aca es hacer copy paste
-        val view= LayoutInflater.from(parent.context).inflate(R.layout.usuario_item,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.usuario_item, parent, false)
         return UsuarioHolder(view)
     }
 
@@ -49,14 +54,12 @@ class AdapterUsuario(var lista: MutableList<Usuario>,var onClick:(Int)->Unit):Re
     }
 
     override fun onBindViewHolder(holder: UsuarioHolder, position: Int) {
-        //interacion de los metodos
-        holder.setDatos("Nombre:${lista[position].name} Email: ${lista[position].Email} Peso actual:${lista[position].pesoActual} kg Altura: ${lista[position].altura}mts")
-        holder.setContrasenia(lista[position].password)
-        //al presionarlo
+        holder.setNombreUsuario(lista[position].name)
+        holder.setEmailUsuario(lista[position].Email)
+        holder.setContraseniaUsuario(lista[position].password)
+        holder.setPesoAlturaUsuario(lista[position].pesoActual, lista[position].altura)
         holder.getCard().setOnClickListener {
-            //que envie la posicion
-                onClick(position)
+            onClick(position)
         }
-
     }
 }
