@@ -62,20 +62,6 @@ class DatosUsuarioFragment : Fragment() {
 
         cerrarSesionBoton.setOnClickListener {
 
-//            usuario = Usuario(
-//                id = 0,
-//                name = "Nombre",
-//                password = "Contraseña",
-//                Email = "email@example.com",
-//                imgUrl = "URL de la imagen",
-//                pesoActual = 0.0,
-//                altura = 0.0
-//            )
-//            UsuarioSingleton.setUsuario(usuario)
-//
-//            val action = DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToLoginFragment(usuario)
-//            findNavController().navigate(action)
-
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Cerrar sesión")
             builder.setMessage("¿Está seguro que desea cerrar sesión?")
