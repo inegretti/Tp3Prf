@@ -14,6 +14,7 @@ import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.RegistroPeso
 import com.example.tp3proyecto.Entidades.Usuario
+import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.example.tp3proyecto.R
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Description
@@ -53,7 +54,7 @@ class ConfigFragment : Fragment() {
         btn = v.findViewById(R.id.btnIrIngPes)
 
         viewModel = ViewModelProvider(this).get(ConfigViewModel::class.java)
-        receptor = viewModel.getInstance()
+        receptor = UsuarioSingleton.getInstance()
 
         // Initialize the chart with the receptor's weight history
         var dataValues: ArrayList<Entry>
