@@ -18,9 +18,6 @@ class UserFragment : Fragment() {
 
     lateinit var v:View
     lateinit var txt: TextView
-//    lateinit var btnRut:Button
-//    lateinit var btnCon:Button
-    lateinit var bottomNavigationView : BottomNavigationView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +25,6 @@ class UserFragment : Fragment() {
     ): View? {
         v= inflater.inflate(R.layout.fragment_user, container, false)
         txt=v.findViewById(R.id.txtusuario)
-//        btnRut=v.findViewById(R.id.btnRut)
-//        btnCon=v.findViewById(R.id.btnConfig)
 
         val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_bar)
         bottomNavigationView?.visibility = View.VISIBLE
