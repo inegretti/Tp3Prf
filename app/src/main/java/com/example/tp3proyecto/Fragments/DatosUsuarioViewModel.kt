@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.Entidades.UsuarioSingleton
 
-class DatoUsuarioViewModel : ViewModel() {
+class DatosUsuarioViewModel : ViewModel() {
     // TODO: Implement the ViewModel
     private val usuarioSingleton: UsuarioSingleton
 
