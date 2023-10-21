@@ -32,8 +32,6 @@ class RutinasFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(RutinasViewModel::class.java)
     }
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,12 +49,10 @@ class RutinasFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        usuario = viewModel.getInstance()
-
+        usuario = UsuarioSingleton.getInstance()
         adapterD= AdapterDia(usuario.semana){position->
             Snackbar.make(v,"posicion ${position}",Snackbar.LENGTH_LONG).show()
         }
-
         d.layoutManager=LinearLayoutManager(context)
         d.adapter=adapterD
 
