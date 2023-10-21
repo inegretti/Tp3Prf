@@ -30,24 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView.setupWithNavController(navController)
 
-//        bottomNavigationView.setOnItemSelectedListener { item ->
-//            when(item.itemId){
-//                R.id.nav_logout -> {
-//                    val builder = AlertDialog.Builder(this)
-//                    builder.setTitle("Cerrar sesión?")
-//                    builder.setPositiveButton("Sí", DialogInterface.OnClickListener { dialog, which ->
-//                        usuario = usuario ?: null
-//                        navController.navigate(R.id.loginFragment)
-//                    })
-//                    builder.setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
-//
-//                    })
-//                    builder.show()
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
     }
     override fun onStart() {
         super.onStart()
