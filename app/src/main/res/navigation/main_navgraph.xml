@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -169,5 +172,14 @@
         <argument
             android:name="recep"
             app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+    </fragment>
+    <fragment
+        android:id="@+id/datosUsuarioFragment2"
+        android:name="com.example.tp3proyecto.Fragments.DatosUsuarioFragment"
+        android:label="fragment_datos_usuario"
+        tools:layout="@layout/fragment_datos_usuario" >
+        <action
+            android:id="@+id/action_datosUsuarioFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
