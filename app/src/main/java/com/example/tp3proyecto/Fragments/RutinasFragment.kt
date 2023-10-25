@@ -11,7 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3proyecto.Adapters.AdapterDia
+import com.example.tp3proyecto.Entidades.Usuario
+import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.example.tp3proyecto.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
 class RutinasFragment : Fragment() {
@@ -22,6 +25,7 @@ class RutinasFragment : Fragment() {
     lateinit var tit:TextView
 
     private lateinit var viewModel: RutinasViewModel
+    private lateinit var usuario: Usuario
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -42,12 +46,17 @@ class RutinasFragment : Fragment() {
         d=v.findViewById(R.id.dias)
         tit=v.findViewById(R.id.rutTit)
         tit.text="Semana XXX"
+
+        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_bar)
+        bottomNavigationView?.visibility = View.VISIBLE
+
         return v
     }
 
     override fun onStart() {
         super.onStart()
         //var z = RutinasFragmentArgs.fromBundle(requireArguments())
+        usuario = UsuarioSingleton.getInstance()
         adapterD= AdapterDia(viewModel.z.usuario.semana){position->
             Snackbar.make(v,"posicion ${position}",Snackbar.LENGTH_LONG).show()
             //val rut = z.usuario.semana[position]
