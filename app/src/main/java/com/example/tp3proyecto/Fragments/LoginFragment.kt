@@ -27,7 +27,6 @@ class LoginFragment : Fragment() {
     private lateinit var viewModel: LoginViewModel
 
     private lateinit var usuario: Usuario
-    private lateinit var usuarioSingleton : UsuarioSingleton
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -71,18 +70,18 @@ class LoginFragment : Fragment() {
 
                 if(viewModel.validarPass(contraseña.text.toString())){
 
-                    UsuarioSingleton.setUsuario(viewModel.usuario)
+                  UsuarioSingleton.setUsuario(viewModel.usuario)
+                    usuario = UsuarioSingleton.getInstance()
 
                     if(viewModel.usuario.name=="Admin"){
                         val action = LoginFragmentDirections.actionLoginFragmentToAdminFragment(viewModel.lista2)
                         findNavController().navigate(action)
                     }else{
-                        val action = LoginFragmentDirections.actionLoginFragmentToUserFragment(viewModel.usuario)
+                        val action = LoginFragmentDirections.actionLoginFragmentToUserFragment(usuario)
                         findNavController().navigate(action)
                     }
 
-
-                    Snackbar.make(v, "Bienvenido ${viewModel.usuario.name}", Snackbar.LENGTH_LONG).show()
+//                    Snackbar.make(v, "Bienvenido ${viewModel.usuario.name}", Snackbar.LENGTH_LONG).show()
                 }else{
                     Snackbar.make(v, "contraseña incorrecta", Snackbar.LENGTH_LONG).show()
                 }
