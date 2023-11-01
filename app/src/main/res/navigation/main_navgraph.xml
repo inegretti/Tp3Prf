@@ -31,9 +31,6 @@
         <action
             android:id="@+id/action_userFragment_to_configFragment"
             app:destination="@id/configFragment" />
-        <action
-            android:id="@+id/action_userFragment_to_rutinasFragment"
-            app:destination="@id/rutinasFragment" />
     </fragment>
     <fragment
         android:id="@+id/configFragment"
@@ -127,12 +124,12 @@
         <argument
             android:name="posicion"
             app:argType="integer" />
-        <argument
-            android:name="clearance"
-            app:argType="boolean" />
         <action
             android:id="@+id/action_rutinaDetail_to_agregarEjercicioFragment2"
             app:destination="@id/agregarEjercicioFragment" />
+        <argument
+            android:name="clearence"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/agregarUsuarioFragment"
