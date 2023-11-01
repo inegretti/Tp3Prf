@@ -9,7 +9,7 @@
         android:icon="@drawable/icono_registro"
         android:title="Registro" />
     <item
-        android:id="@+id/datosUsuarioFragment"
+        android:id="@+id/datosUsuarioFragment2"
         android:icon="@drawable/icono_usuario"
         android:title="Perfil" />
 </menu>
