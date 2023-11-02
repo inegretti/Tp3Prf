@@ -1,7 +1,6 @@
 package com.example.tp3proyecto.Fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.example.tp3proyecto.R
-import com.example.tp3proyecto.Repository.Repositorio
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
@@ -77,7 +75,7 @@ class LoginFragment : Fragment() {
                         val action = LoginFragmentDirections.actionLoginFragmentToAdminFragment(viewModel.lista2)
                         findNavController().navigate(action)
                     }else{
-                        val action = LoginFragmentDirections.actionLoginFragmentToUserFragment(usuario)
+                        val action = LoginFragmentDirections.actionLoginFragmentToRutinasFragment3(usuario, clereance = false)
                         findNavController().navigate(action)
                     }
 
