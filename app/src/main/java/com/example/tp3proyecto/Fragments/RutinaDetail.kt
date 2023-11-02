@@ -13,7 +13,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3proyecto.Adapters.AdapterEjercicio
+import com.example.tp3proyecto.Entidades.Usuario
+import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.example.tp3proyecto.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
 class RutinaDetail : Fragment() {
@@ -25,6 +28,8 @@ class RutinaDetail : Fragment() {
     private lateinit var btn:Button
 
     private lateinit var viewModel: RutinaDetailViewModel
+    private lateinit var usuario: Usuario
+//    private var clearance : Boolean = false
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -45,25 +50,29 @@ class RutinaDetail : Fragment() {
         r=v.findViewById(R.id.rutinaDet)
         btn=v.findViewById(R.id.btnAGR)
 
+        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_bar)
+        bottomNavigationView?.visibility = View.VISIBLE
+
         return v
     }
 
     override fun onStart() {
         super.onStart()
+        usuario = UsuarioSingleton.getInstance()
         //var z=RutinaDetailArgs.fromBundle(requireArguments())
-        if(viewModel.z.clearance){
+        if(viewModel.z.clearence){
             btn.setVisibility(View.VISIBLE)
 
         }else{
             btn.setVisibility(View.INVISIBLE)
         }
-        t.text=viewModel.z.usuario.semana[viewModel.z.posicion].nombre
+        t.text=usuario.semana[viewModel.z.posicion].nombre
         ejAdap=AdapterEjercicio(viewModel.z.usuario.semana[viewModel.z.posicion].rutina){position->
             //val rut = z.usuario.semana[position]
             //Snackbar.make(v, "prueba ${rut.rutina.get(0).nombre}", Snackbar.LENGTH_LONG).show()
             var ej= viewModel.z.usuario.semana[viewModel.z.posicion].rutina[position]
 
-            val action =  RutinaDetailDirections.actionRutinaDetailToEjercicioDetail(viewModel.z.usuario,viewModel.z.clearance,ej,viewModel.z.posicion)
+            val action = RutinaDetailDirections.actionRutinaDetailToEjercicioDetail(viewModel.z.usuario, viewModel.z.clearence, ej, viewModel.z.posicion)
             findNavController().navigate(action)
         }
         r.layoutManager= LinearLayoutManager(context)

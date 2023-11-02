@@ -30,4 +30,7 @@ data class Usuario(
         semana[dia].agregarEjercicio(ejercicio)
 
     }
+    fun tieneRutinas(pos:Int):Boolean{
+        return  semana[pos].rutina.isEmpty()
+    }
 }
