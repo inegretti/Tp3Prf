@@ -11,14 +11,14 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_userFragment"
-            app:destination="@id/userFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
         <argument
             android:name="usuario"
             app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <action
+            android:id="@+id/action_loginFragment_to_rutinasFragment3"
+            app:destination="@id/rutinasFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -28,9 +28,6 @@
         <argument
             android:name="usuario"
             app:argType="com.example.tp3proyecto.Entidades.Usuario" />
-        <action
-            android:id="@+id/action_userFragment_to_configFragment"
-            app:destination="@id/configFragment" />
     </fragment>
     <fragment
         android:id="@+id/configFragment"
