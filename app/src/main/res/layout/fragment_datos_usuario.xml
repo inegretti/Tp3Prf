@@ -9,73 +9,80 @@
 
     <TextView
         android:id="@+id/nombreUsuario"
-        android:layout_width="137dp"
-        android:layout_height="31dp"
+        android:layout_width="184dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="40dp"
         android:text="TextView"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
-        app:layout_constraintStart_toEndOf="@+id/imagenUsuario"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.145" />
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/pesoUsuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagenUsuario" />
 
     <TextView
         android:id="@+id/mailUsuario"
-        android:layout_width="137dp"
-        android:layout_height="31dp"
+        android:layout_width="192dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="35dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
-        app:layout_constraintStart_toEndOf="@+id/imagenUsuario"
-        app:layout_constraintTop_toBottomOf="@+id/nombreUsuario"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintTop_toBottomOf="@+id/imagenUsuario" />
 
     <TextView
         android:id="@+id/pesoUsuario"
-        android:layout_width="137dp"
-        android:layout_height="31dp"
+        android:layout_width="182dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
-        app:layout_constraintStart_toEndOf="@+id/imagenUsuario"
-        app:layout_constraintTop_toBottomOf="@+id/mailUsuario"
-        app:layout_constraintVertical_bias="0.024" />
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreUsuario" />
 
     <TextView
         android:id="@+id/alturaUsuario"
-        android:layout_width="137dp"
+        android:layout_width="191dp"
         android:layout_height="31dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="35dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
-        app:layout_constraintStart_toEndOf="@+id/imagenUsuario"
-        app:layout_constraintTop_toBottomOf="@+id/mailUsuario"
-        app:layout_constraintVertical_bias="0.104" />
+        app:layout_constraintTop_toBottomOf="@+id/mailUsuario" />
 
     <ImageView
         android:id="@+id/imagenUsuario"
-        android:layout_width="143dp"
-        android:layout_height="161dp"
+        android:layout_width="159dp"
+        android:layout_height="174dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175"
+        app:layout_constraintVertical_bias="0.168"
         tools:src="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/cerrarSesionBoton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="177dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="166dp"
+        android:layout_marginBottom="75dp"
+        android:background="#F86666"
         android:text="Cerrar Sesion"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/alturaUsuario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
