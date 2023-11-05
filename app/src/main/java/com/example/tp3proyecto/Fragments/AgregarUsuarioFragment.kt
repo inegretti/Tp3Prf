@@ -13,6 +13,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.R
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class AgregarUsuarioFragment : Fragment() {
 
@@ -26,6 +28,7 @@ class AgregarUsuarioFragment : Fragment() {
     private lateinit var peso:EditText
     private lateinit var altura:EditText
     private lateinit var btnIng:Button
+    val database = Firebase.firestore
 
 
     override fun onCreateView(
@@ -57,7 +60,9 @@ class AgregarUsuarioFragment : Fragment() {
                 }else{
                 if(z.usuarios.lista.find {it.Email==email.text.toString()} == null){
                     if(contrasenia.text.toString() == confirmacionContrasenia.text.toString()){
-                        z.usuarios.lista.add(Usuario((z.usuarios.lista.size-1),nombre.text.toString(),contrasenia.text.toString(),email.text.toString(),"",peso.text.toString().toDouble(),altura.text.toString().toDouble()))
+                        var ej=Usuario((z.usuarios.lista.size-1),nombre.text.toString(),contrasenia.text.toString(),email.text.toString(),"",peso.text.toString().toDouble(),altura.text.toString().toDouble())
+                        z.usuarios.lista.add(ej)
+                        database.collection("users").document(ej.Email).set(ej)
                         Snackbar.make(v,"Usuario Registrados", Snackbar.LENGTH_LONG).show()
                         findNavController().navigateUp()
 

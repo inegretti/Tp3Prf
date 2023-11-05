@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.R
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class UserAdmFragment : Fragment() {
 
@@ -24,6 +26,7 @@ class UserAdmFragment : Fragment() {
     private lateinit var btn:Button
     private lateinit var btnR:Button
     private lateinit var btnRutina:Button
+    val database = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,6 +54,7 @@ class UserAdmFragment : Fragment() {
 
         btn.setOnClickListener(){
             z.lista.lista.remove(z.usuario)
+            database.collection("users").document(z.usuario.Email).delete()
             Snackbar.make(v,"El usuario ha sido removido", Snackbar.LENGTH_LONG).show()
             findNavController().navigateUp()
 
@@ -60,6 +64,7 @@ class UserAdmFragment : Fragment() {
             var pos=z.lista.lista.indexOf(z.usuario)
 
             z.lista.lista.get(pos).password="password"
+            database.collection("users").document(z.usuario.Email).update("password","password")
             findNavController().navigateUp()
             Snackbar.make(v,"La contraseña fue cambiada a password", Snackbar.LENGTH_LONG).show()
         }

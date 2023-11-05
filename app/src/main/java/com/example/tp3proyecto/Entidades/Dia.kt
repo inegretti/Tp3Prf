@@ -6,6 +6,7 @@ data class Dia(
     var nombre:String,
 
 ){
+    constructor() : this("")
     var rutina= mutableListOf<Ejercicio>()
     var estado:Boolean
 

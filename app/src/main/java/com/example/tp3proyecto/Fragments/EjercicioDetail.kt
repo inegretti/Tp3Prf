@@ -1,6 +1,7 @@
 package com.example.tp3proyecto.Fragments
 
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +15,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class EjercicioDetail : Fragment() {
 
@@ -25,6 +29,7 @@ class EjercicioDetail : Fragment() {
     private lateinit var com:EditText
     private lateinit var imagenDetails : ImageView
     private lateinit var desc:EditText
+    val database = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -86,15 +91,15 @@ class EjercicioDetail : Fragment() {
 
         btn.setOnClickListener() {
                 z.usuario.semana[z.posicion].rutina.remove(z.ejercicio)
-            findNavController().navigateUp()
-
-
+            database.collection("users").document(z.usuario.Email).update("rutina",z.usuario.semana[z.posicion].rutina).addOnSuccessListener {  }
+                findNavController().navigateUp()
         }
 
         btnC.setOnClickListener(){
             z.ejercicio.estado=true
             z.ejercicio.descripcion=desc.text.toString()
             z.ejercicio.comentario=com.text.toString()
+            database.collection("users").document(z.usuario.Email).update("rutina",z.usuario.semana[z.posicion].rutina).addOnSuccessListener {  }
             findNavController().navigateUp()
         }
     }

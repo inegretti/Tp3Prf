@@ -7,6 +7,7 @@ class Ejercicio(
     var nombre:String,
     var media:String
 ) : Parcelable {
+    constructor() : this(0,"","")
     var series:Int
     var repeticiones:Int
     var descripcion:String

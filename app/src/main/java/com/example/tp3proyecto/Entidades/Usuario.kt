@@ -16,6 +16,7 @@ data class Usuario(
     var pesoActual:Double,
     var altura:Double
                    ):Parcelable{
+    constructor() : this(0, "", "","","",99.0,22.0)
     var semana= mutableListOf<Dia>(Dia("Lunes"),Dia("Martes"),Dia("Miercoles"),
         Dia("Jueves"),Dia("Viernes"),Dia("Sabado"),Dia("Domingo"))
     var historialPeso: MutableList<RegistroPeso> = mutableListOf()

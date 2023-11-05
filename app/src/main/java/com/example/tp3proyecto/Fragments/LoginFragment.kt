@@ -59,7 +59,7 @@ class LoginFragment : Fragment() {
             var e:String= email.text.toString()
             //var usuario=lista2.lista.find {it.Email==e}
            //Snackbar.make(v, "usuario ${usuario}", Snackbar.LENGTH_LONG).show()
-            if(viewModel.usuario!=null){
+            if(viewModel.usuario.Email!="vacio"){
 
                 if(viewModel.validarPass(contraseña.text.toString())){
 

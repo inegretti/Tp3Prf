@@ -17,6 +17,12 @@ import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.R
 import com.example.tp3proyecto.Repository.Repositorio
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObjects
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class AgregarEjercicioFragment : Fragment() {
 
@@ -28,7 +34,34 @@ class AgregarEjercicioFragment : Fragment() {
     private lateinit var ingSer:TextView
     private lateinit var ingDesc:TextView
     private lateinit var btn:Button
-    //var rep:Repositorio = Repositorio()
+    //var rep:Repositorio = Repositorio
+    var listaC= mutableListOf<Ejercicio>()
+    val database = Firebase.firestore
+
+
+    /*
+    var z =
+
+
+            database.collection("ejercicios").get()
+                .addOnSuccessListener {
+                    for (Ejercicio in it.toObjects<Ejercicio>()) {
+                        // var ej=Ejercicio(Ejercicio.id.toInt(),Ejercicio.nombre.toString(),Ejercicio.media.toString())
+                        // listaC.add(ej)
+                        Log.d("ejercicio", Ejercicio.nombre)
+                        listaC.add(Ejercicio)
+                    }
+                    var op:MutableList<String> = mutableListOf()
+                    for (ejercicio in listaC) {
+                        op.add(ejercicio.nombre)
+
+                    }
+
+                }
+*/
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,25 +74,44 @@ class AgregarEjercicioFragment : Fragment() {
         ingDesc=v.findViewById(R.id.ingDesc)
         btn = v.findViewById(R.id.btnAAR)
 
-        for (ejercicio in Repositorio.listaC) {
-            Log.d("Ejercicio nro${Repositorio.listaC.indexOf(ejercicio)}",ejercicio.nombre)
-
-        }
-
-
+/*
         var op:MutableList<String> = mutableListOf()
-        for (ejercicio in Repositorio.listaC) {
+        for (ejercicio in listaC) {
             op.add(ejercicio.nombre)
 
         }
+
         var  adapter:ArrayAdapter<String>
         adapter = ArrayAdapter<String>(requireActivity(),android.R.layout.simple_spinner_item,op)
         spin.adapter=adapter
+
+ */
         return v
     }
 
     override fun onStart() {
         super.onStart()
+        database.collection("ejercicios").get()
+            .addOnSuccessListener {
+                for (Ejercicio in it.toObjects<Ejercicio>()) {
+                    // var ej=Ejercicio(Ejercicio.id.toInt(),Ejercicio.nombre.toString(),Ejercicio.media.toString())
+                    // listaC.add(ej)
+                    Log.d("ejercicio", Ejercicio.nombre)
+                    listaC.add(Ejercicio)
+                }
+                var op:MutableList<String> = mutableListOf()
+                for (ejercicio in listaC) {
+                    op.add(ejercicio.nombre)
+
+                }
+                var  adapter:ArrayAdapter<String>
+                adapter = ArrayAdapter<String>(requireActivity(),android.R.layout.simple_spinner_item,op)
+                spin.adapter=adapter
+
+            }
+
+
+
 
         var z = AgregarEjercicioFragmentArgs.fromBundle(requireArguments())
         btn.setOnClickListener() {
@@ -70,7 +122,7 @@ class AgregarEjercicioFragment : Fragment() {
                     Snackbar.LENGTH_LONG
                 ).show()
             } else {
-                var obj = Repositorio.listaC.find { it.nombre == spin.selectedItem.toString() }
+                var obj = listaC.find { it.nombre == spin.selectedItem.toString() }
 
                 if (obj != null) {
                     var copia:Ejercicio
@@ -78,10 +130,8 @@ class AgregarEjercicioFragment : Fragment() {
                     copia.series=Integer.parseInt(ingSer.text.toString())
                         copia.repeticiones=Integer.parseInt(ingRep.text.toString())
                     copia.descripcion=ingDesc.text.toString()
-                    //obj.series = Integer.parseInt(ingSer.text.toString())
-                    //obj.repeticiones = Integer.parseInt(ingRep.text.toString())
-                    //z.usuario.semana[z.posicion].rutina.add(obj)
                     z.usuario.semana[z.posicion].rutina.add(copia)
+                    database.collection("users").document(z.usuario.Email).update("semana",z.usuario.semana).addOnSuccessListener {  }
                     Snackbar.make(v, "Se ha agregado el ejercicio", Snackbar.LENGTH_LONG).show()
                     findNavController().navigateUp()
                 } else {

@@ -15,6 +15,8 @@ import com.example.tp3proyecto.Entidades.Ejercicio
 import com.example.tp3proyecto.R
 import com.example.tp3proyecto.Repository.Repositorio
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class AgregarEjNewFragment : Fragment() {
 
@@ -24,6 +26,7 @@ class AgregarEjNewFragment : Fragment() {
     private lateinit var btn:Button
     private lateinit var nombre: EditText
     private lateinit var mult: EditText
+    val database = Firebase.firestore
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,6 +50,8 @@ class AgregarEjNewFragment : Fragment() {
             }else{
                 if(z.listaEjercicio.listaE.find {it.nombre==nombre.text.toString().uppercase()} == null){
 
+                    var ej=Ejercicio(z.listaEjercicio.listaE.size,nombre.text.toString().uppercase(),mult.text.toString())
+                    database.collection("ejercicios").document(ej.nombre).set(ej)
                     z.listaEjercicio.listaE.add(Ejercicio(z.listaEjercicio.listaE.size-1,nombre.text.toString().uppercase(),mult.text.toString()))
                     Repositorio.listaC.add(Ejercicio(Repositorio.listaC.size-1,nombre.text.toString().uppercase(),mult.text.toString()))
                     for (ejercicio in  z.listaEjercicio.listaE) {
