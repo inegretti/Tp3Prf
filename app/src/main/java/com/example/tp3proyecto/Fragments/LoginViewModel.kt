@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.Usuario
+import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.example.tp3proyecto.Repository.Repositorio
 
 class LoginViewModel : ViewModel() {

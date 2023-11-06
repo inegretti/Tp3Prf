@@ -1,7 +1,6 @@
 package com.example.tp3proyecto.Fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +10,9 @@ import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.Usuario
+import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.example.tp3proyecto.R
-import com.example.tp3proyecto.Repository.Repositorio
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
 class LoginFragment : Fragment() {
@@ -23,6 +23,8 @@ class LoginFragment : Fragment() {
     lateinit var btn: Button
     //var lista2:Repositorio=Repositorio()
     private lateinit var viewModel: LoginViewModel
+
+    private lateinit var usuario: Usuario
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -40,6 +42,9 @@ class LoginFragment : Fragment() {
         email = v.findViewById(R.id.email)
         contraseña = v.findViewById(R.id.contraseña)
         btn = v.findViewById(R.id.button2)
+
+        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_bar)
+        bottomNavigationView?.visibility = View.GONE
 
         return v
     }
@@ -63,16 +68,18 @@ class LoginFragment : Fragment() {
 
                 if(viewModel.validarPass(contraseña.text.toString())){
 
+                  UsuarioSingleton.setUsuario(viewModel.usuario)
+                    usuario = UsuarioSingleton.getInstance()
+
                     if(viewModel.usuario.name=="Admin"){
                         val action = LoginFragmentDirections.actionLoginFragmentToAdminFragment(viewModel.lista2)
                         findNavController().navigate(action)
                     }else{
-                        val action = LoginFragmentDirections.actionLoginFragmentToUserFragment(viewModel.usuario)
+                        val action = LoginFragmentDirections.actionLoginFragmentToRutinasFragment3(usuario, clereance = false)
                         findNavController().navigate(action)
                     }
 
-
-                    Snackbar.make(v, "Bienvenido ${viewModel.usuario.name}", Snackbar.LENGTH_LONG).show()
+//                    Snackbar.make(v, "Bienvenido ${viewModel.usuario.name}", Snackbar.LENGTH_LONG).show()
                 }else{
                     Snackbar.make(v, "contraseña incorrecta", Snackbar.LENGTH_LONG).show()
                 }

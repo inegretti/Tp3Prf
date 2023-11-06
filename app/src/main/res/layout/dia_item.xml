@@ -6,24 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    app:cardBackgroundColor="#C3D4FF"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/nomDia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:text="TextView"
-            android:textSize="20sp"
-            android:textColor="#000000" />
+    <TextView
+        android:id="@+id/nomDia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:layout_weight="1" />
 
-        <!-- Puedes agregar más vistas aquí según tus necesidades -->
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="53dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icono_calendario" />
+
+</LinearLayout>
+    </androidx.cardview.widget.CardView>

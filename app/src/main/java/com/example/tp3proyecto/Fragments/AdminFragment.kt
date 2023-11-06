@@ -1,12 +1,11 @@
 package com.example.tp3proyecto.Fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +19,6 @@ class AdminFragment : Fragment() {
 
     lateinit var v:View
     lateinit var r:RecyclerView
-    lateinit var t:TextView
     lateinit var adapter:AdapterUsuario
     lateinit var btn:Button
     lateinit var btnIng:Button
@@ -33,9 +31,7 @@ class AdminFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         v= inflater.inflate(R.layout.fragment_admin, container, false)
-        t=v.findViewById(R.id.textAdm)
         r=v.findViewById(R.id.adminView)
-        t.text="Administrador de Usuarios"
         btn=v.findViewById(R.id.btnLgAd)
         btnIng=v.findViewById(R.id.btnIngUs)
         btnIANE=v.findViewById(R.id.btnIANE)

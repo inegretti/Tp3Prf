@@ -11,11 +11,14 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_userFragment"
-            app:destination="@id/userFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <action
+            android:id="@+id/action_loginFragment_to_rutinasFragment3"
+            app:destination="@id/rutinasFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -25,12 +28,6 @@
         <argument
             android:name="usuario"
             app:argType="com.example.tp3proyecto.Entidades.Usuario" />
-        <action
-            android:id="@+id/action_userFragment_to_configFragment"
-            app:destination="@id/configFragment" />
-        <action
-            android:id="@+id/action_userFragment_to_rutinasFragment"
-            app:destination="@id/rutinasFragment" />
     </fragment>
     <fragment
         android:id="@+id/configFragment"
@@ -124,12 +121,12 @@
         <argument
             android:name="posicion"
             app:argType="integer" />
-        <argument
-            android:name="clearance"
-            app:argType="boolean" />
         <action
             android:id="@+id/action_rutinaDetail_to_agregarEjercicioFragment2"
             app:destination="@id/agregarEjercicioFragment" />
+        <argument
+            android:name="clearence"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/agregarUsuarioFragment"
@@ -169,5 +166,14 @@
         <argument
             android:name="recep"
             app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+    </fragment>
+    <fragment
+        android:id="@+id/datosUsuarioFragment2"
+        android:name="com.example.tp3proyecto.Fragments.DatosUsuarioFragment"
+        android:label="fragment_datos_usuario"
+        tools:layout="@layout/fragment_datos_usuario" >
+        <action
+            android:id="@+id/action_datosUsuarioFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
