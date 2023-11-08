@@ -62,9 +62,7 @@ class LoginFragment : Fragment() {
         btn.setOnClickListener() {
             var usuario = viewModel.validarUs(email.text.toString(),contraseña.text.toString())
             var e:String= email.text.toString()
-            //var usuario=lista2.lista.find {it.Email==e}
-           //Snackbar.make(v, "usuario ${usuario}", Snackbar.LENGTH_LONG).show()
-            if(viewModel.usuario.Email!="vacio"){
+            if(viewModel.usuario.Email!="email@example.com"){
 
                 if(viewModel.validarPass(contraseña.text.toString())){
 
@@ -79,30 +77,10 @@ class LoginFragment : Fragment() {
                         findNavController().navigate(action)
                     }
 
-//                    Snackbar.make(v, "Bienvenido ${viewModel.usuario.name}", Snackbar.LENGTH_LONG).show()
+//
                 }else{
                     Snackbar.make(v, "contraseña incorrecta", Snackbar.LENGTH_LONG).show()
                 }
-                /*
-                if(contraseña.text.toString() == usuario.password){
-
-                    if(usuario.name=="Admin"){
-                        val action = LoginFragmentDirections.actionLoginFragmentToAdminFragment(lista2)
-                        Log.d("hola= ",lista2.toString())
-                        findNavController().navigate(action)
-                        // findNavController().navigateUp()
-
-                    }else{
-                        val action = LoginFragmentDirections.actionLoginFragmentToUserFragment(usuario)
-                        findNavController().navigate(action)
-                    }
-
-
-                    Snackbar.make(v, "Bienvenido ${usuario.name}", Snackbar.LENGTH_LONG).show()
-                }else{
-                    Snackbar.make(v, "Contraseña incorrecta", Snackbar.LENGTH_LONG).show()
-                }
-                */
 
 
             }else{

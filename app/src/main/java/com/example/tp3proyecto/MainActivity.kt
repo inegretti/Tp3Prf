@@ -1,14 +1,10 @@
 package com.example.tp3proyecto
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.tp3proyecto.Entidades.Usuario
-import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
 

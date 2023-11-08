@@ -91,7 +91,7 @@ class EjercicioDetail : Fragment() {
 
         btn.setOnClickListener() {
                 z.usuario.semana[z.posicion].rutina.remove(z.ejercicio)
-            database.collection("users").document(z.usuario.Email).update("rutina",z.usuario.semana[z.posicion].rutina).addOnSuccessListener {  }
+            database.collection("users").document(z.usuario.Email).update("semana",z.usuario.semana).addOnSuccessListener {  }
                 findNavController().navigateUp()
         }
 
@@ -99,7 +99,7 @@ class EjercicioDetail : Fragment() {
             z.ejercicio.estado=true
             z.ejercicio.descripcion=desc.text.toString()
             z.ejercicio.comentario=com.text.toString()
-            database.collection("users").document(z.usuario.Email).update("rutina",z.usuario.semana[z.posicion].rutina).addOnSuccessListener {  }
+            database.collection("users").document(z.usuario.Email).update("semana",z.usuario.semana).addOnSuccessListener {  }
             findNavController().navigateUp()
         }
     }

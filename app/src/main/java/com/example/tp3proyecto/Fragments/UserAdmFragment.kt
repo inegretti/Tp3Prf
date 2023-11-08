@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.example.tp3proyecto.R
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
@@ -73,6 +74,7 @@ class UserAdmFragment : Fragment() {
             btnRutina.setOnClickListener() {
                 //Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
                 val action =  UserAdmFragmentDirections.actionUserAdmFragmentToRutinasFragment(z.usuario,true)
+                UsuarioSingleton.setUsuario(z.usuario)
                 findNavController().navigate(action)
 
             }

@@ -21,4 +21,17 @@ object UsuarioSingleton {
     fun setUsuario(usuario: Usuario) {
         userInstance = usuario
     }
+
+    fun reiniciarinstance(){
+        userInstance = Usuario(
+            id = 0,
+            name = "Nombre",
+            password = "Contraseña",
+            Email = "email@example.com",
+            imgUrl = "URL de la imagen",
+            pesoActual = 0.0,
+            altura = 0.0
+        )
+
+    }
 }

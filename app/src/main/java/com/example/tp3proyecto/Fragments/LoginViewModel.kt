@@ -10,7 +10,13 @@ import com.example.tp3proyecto.Repository.Repositorio
 class LoginViewModel : ViewModel() {
     // TODO: Implement the ViewModel
     var lista2: Repositorio = Repositorio()
-    var usuario:Usuario=Usuario(0,"","vacio","vacio","",1.8,90.0)
+    var usuario:Usuario=Usuario(0,
+        "Nombre",
+        "Contraseña",
+        "email@example.com",
+        "URL de la imagen",
+        0.0,
+        0.0)
 
     fun validarUs(us:String,pass:String):Usuario?{
        var bus =lista2.lista.find {it.Email==us}

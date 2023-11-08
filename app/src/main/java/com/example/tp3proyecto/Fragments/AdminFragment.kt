@@ -1,5 +1,6 @@
 package com.example.tp3proyecto.Fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3proyecto.Adapters.AdapterUsuario
 import com.example.tp3proyecto.Entidades.Usuario
+import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.example.tp3proyecto.R
 import com.example.tp3proyecto.Repository.Repositorio
 import com.google.android.material.snackbar.Snackbar
@@ -63,8 +65,52 @@ class AdminFragment : Fragment() {
         r.adapter=adapter
 
         btn.setOnClickListener(){
-            findNavController().navigateUp()
-            Snackbar.make(v,"Adios Admin",Snackbar.LENGTH_LONG).show()
+            /*
+            var usuario = Usuario(
+                id = 0,
+                name = "Nombre",
+                password = "Contraseña",
+                Email = "email@example.com",
+                imgUrl = "URL de la imagen",
+                pesoActual = 0.0,
+                altura = 0.0
+            )
+            UsuarioSingleton.setUsuario(usuario)
+            */
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Cerrar sesión")
+            builder.setMessage("¿Está seguro que desea cerrar sesión?")
+
+            builder.setPositiveButton("Sí") { dialog, which ->
+
+                var usuario = Usuario(
+                    id = 0,
+                    name = "Nombre",
+                    password = "Contraseña",
+                    Email = "email@example.com",
+                    imgUrl = "URL de la imagen",
+                    pesoActual = 0.0,
+                    altura = 0.0
+                )
+
+
+                 UsuarioSingleton.setUsuario(usuario)
+
+
+
+                //val action = DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToLoginFragment(usuario)
+                //findNavController().navigate(action)
+                findNavController().navigateUp()
+                //Snackbar.make(v,"Adios Admin",Snackbar.LENGTH_LONG).show()
+                Snackbar.make(v,"usuario actual ${UsuarioSingleton.getInstance().name}",Snackbar.LENGTH_LONG).show()
+            }
+
+            builder.setNegativeButton("No") { dialog, which ->
+                dialog.dismiss()
+            }
+
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
         }
 
         btnIng.setOnClickListener(){

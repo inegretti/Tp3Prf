@@ -67,6 +67,7 @@ class DatosUsuarioFragment : Fragment() {
             builder.setMessage("¿Está seguro que desea cerrar sesión?")
 
             builder.setPositiveButton("Sí") { dialog, which ->
+
                 usuario = Usuario(
                     id = 0,
                     name = "Nombre",
@@ -76,8 +77,12 @@ class DatosUsuarioFragment : Fragment() {
                     pesoActual = 0.0,
                     altura = 0.0
                 )
-                UsuarioSingleton.setUsuario(usuario)
 
+
+               // UsuarioSingleton.setUsuario(usuario)
+
+
+                UsuarioSingleton.reiniciarinstance()
                 val action = DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToLoginFragment(usuario)
                 findNavController().navigate(action)
             }

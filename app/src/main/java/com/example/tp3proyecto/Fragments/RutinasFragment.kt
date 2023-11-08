@@ -57,20 +57,15 @@ class RutinasFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         usuario = UsuarioSingleton.getInstance()
-        //var z = RutinasFragmentArgs.fromBundle(requireArguments())
         adapterD= AdapterDia(usuario.semana){position->
             Snackbar.make(v,"posicion ${position}",Snackbar.LENGTH_LONG).show()
-            //val rut = z.usuario.semana[position]
-            //viewModel.z.usuario.semana[position].rutina.isEmpty() ||
+            var clear=RutinasFragmentArgs.fromBundle(requireArguments()).clereance
             if(usuario.tieneRutinas(position)) {
                 clereance = true
 
-                // val rut = z.usuario.semana[position]
-                // Snackbar.make(v, "prueba ${rut.rutina.isEmpty()}", Snackbar.LENGTH_LONG).show()
-                // val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(z.usuario,position)
-                // findNavController().navigate(action)
-//                if(viewModel.z.clereance){
-                val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(usuario,position,clereance)
+
+
+                val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(usuario,position,clear)
                 findNavController().navigate(action)
 //                }else{
 //                    Snackbar.make(v, "no hay rutina registrada", Snackbar.LENGTH_LONG).show()
@@ -78,8 +73,9 @@ class RutinasFragment : Fragment() {
 
 
             }else {
-                val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(usuario,position,clereance)
+                val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(usuario,position,clear)
                 findNavController().navigate(action)
+
             }
 
         }
