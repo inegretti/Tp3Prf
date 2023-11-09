@@ -2,13 +2,13 @@ package com.example.tp3proyecto.Fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.Usuario
@@ -57,8 +57,8 @@ class DatosUsuarioFragment : Fragment() {
         usuario = UsuarioSingleton.getInstance()
         nombreUsuario.text = "${usuario.name}"
         mailUsuario.text = "${usuario.Email}"
-        pesoUsuario.text = "${usuario.pesoActual}"
-        alturaUsuario.text = "${usuario.altura}"
+        pesoUsuario.text = "${usuario.pesoActual} Kg"
+        alturaUsuario.text = "${usuario.altura} Mts"
 
         cerrarSesionBoton.setOnClickListener {
 
