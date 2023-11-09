@@ -53,19 +53,19 @@ class AdminFragment : Fragment() {
         usuariosOriginal = z.usuarios.lista
 
         //abro funcion con {} como metodo
-        adapter= AdapterUsuario(z.usuarios.lista){
-                // es lo que envia el adapter
-                position->
-            if(z.usuarios.lista.get(position).name=="Admin"){
-                Snackbar.make(v,"No se puede acceder al usuario admin, contactarse con servicio tecnico",Snackbar.LENGTH_LONG).show()
-            }else{
-                var t:Usuario=z.usuarios.lista.get(position)
-                var r: Repositorio=z.usuarios
-                val action = AdminFragmentDirections.actionAdminFragmentToUserAdmFragment(t,r)
+        adapter = AdapterUsuario(z.usuarios.lista) { position ->
+            val selectedUser = adapter.lista[position]
+
+            if (selectedUser.name == "Admin") {
+                Snackbar.make(v, "No se puede acceder al usuario admin, contactarse con servicio técnico", Snackbar.LENGTH_LONG).show()
+            } else {
+                val t: Usuario = selectedUser
+                val r: Repositorio = z.usuarios
+                val action = AdminFragmentDirections.actionAdminFragmentToUserAdmFragment(t, r)
                 findNavController().navigate(action)
             }
-
         }
+
         //configurar
         r.layoutManager=LinearLayoutManager(context)
         r.adapter=adapter
@@ -81,6 +81,7 @@ class AdminFragment : Fragment() {
                 return true
             }
         })
+
 
         btn.setOnClickListener(){
             /*
