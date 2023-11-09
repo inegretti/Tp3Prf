@@ -21,8 +21,8 @@
 
     <Button
         android:id="@+id/btnIngUs"
-        android:layout_width="143dp"
-        android:layout_height="56dp"
+        android:layout_width="148dp"
+        android:layout_height="60dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="15dp"
@@ -38,7 +38,7 @@
     <Button
         android:id="@+id/btnIANE"
         android:layout_width="148dp"
-        android:layout_height="58dp"
+        android:layout_height="60dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="28dp"
@@ -53,8 +53,8 @@
 
     <Button
         android:id="@+id/btnLgAd"
-        android:layout_width="157dp"
-        android:layout_height="65dp"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
         android:layout_marginStart="75dp"
         android:layout_marginTop="95dp"
         android:layout_marginEnd="75dp"
