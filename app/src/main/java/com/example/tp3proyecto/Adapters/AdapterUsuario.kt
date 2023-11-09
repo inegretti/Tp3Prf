@@ -42,6 +42,7 @@ class AdapterUsuario(var lista: MutableList<Usuario>, var onClick: (Int) -> Unit
         fun getCard(): CardView {
             return s.findViewById(R.id.cardUsuario)
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuarioHolder {

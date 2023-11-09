@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +26,8 @@ class AdminFragment : Fragment() {
     lateinit var btn:Button
     lateinit var btnIng:Button
     lateinit var btnIANE:Button
+    lateinit var searchView: SearchView
+    lateinit var usuariosOriginal: List<Usuario>
 
 
 
@@ -37,6 +40,7 @@ class AdminFragment : Fragment() {
         btn=v.findViewById(R.id.btnLgAd)
         btnIng=v.findViewById(R.id.btnIngUs)
         btnIANE=v.findViewById(R.id.btnIANE)
+        searchView = v.findViewById(R.id.searchView)
 
         return v
     }
@@ -44,6 +48,10 @@ class AdminFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         var z = AdminFragmentArgs.fromBundle(requireArguments())
+
+        // Guardar la lista original de usuarios para filtrar
+        usuariosOriginal = z.usuarios.lista
+
         //abro funcion con {} como metodo
         adapter= AdapterUsuario(z.usuarios.lista){
                 // es lo que envia el adapter
@@ -57,12 +65,22 @@ class AdminFragment : Fragment() {
                 findNavController().navigate(action)
             }
 
-
-
         }
         //configurar
         r.layoutManager=LinearLayoutManager(context)
         r.adapter=adapter
+
+        // Configurar el SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filter(newText)
+                return true
+            }
+        })
 
         btn.setOnClickListener(){
             /*
@@ -93,9 +111,7 @@ class AdminFragment : Fragment() {
                     altura = 0.0
                 )
 
-
                  UsuarioSingleton.setUsuario(usuario)
-
 
 
                 //val action = DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToLoginFragment(usuario)
@@ -128,6 +144,22 @@ class AdminFragment : Fragment() {
 
     }
 
+    private fun filter(query: String?) {
+        val filteredList = mutableListOf<Usuario>()
 
+        if (!query.isNullOrBlank()) {
+            for (user in usuariosOriginal) {
+                if (user.name.contains(query, true)) {
+                    filteredList.add(user)
+                }
+            }
+        } else {
+            filteredList.addAll(usuariosOriginal)
+        }
+
+        // Actualiza la lista en el adaptador y notifica los cambios
+        adapter.lista = filteredList
+        adapter.notifyDataSetChanged()
+    }
 
 }
