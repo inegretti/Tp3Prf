@@ -84,18 +84,6 @@ class AdminFragment : Fragment() {
 
 
         btn.setOnClickListener(){
-            /*
-            var usuario = Usuario(
-                id = 0,
-                name = "Nombre",
-                password = "Contraseña",
-                Email = "email@example.com",
-                imgUrl = "URL de la imagen",
-                pesoActual = 0.0,
-                altura = 0.0
-            )
-            UsuarioSingleton.setUsuario(usuario)
-            */
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Cerrar sesión")
             builder.setMessage("¿Está seguro que desea cerrar sesión?")
@@ -114,9 +102,6 @@ class AdminFragment : Fragment() {
 
                  UsuarioSingleton.setUsuario(usuario)
 
-
-                //val action = DatosUsuarioFragmentDirections.actionDatosUsuarioFragmentToLoginFragment(usuario)
-                //findNavController().navigate(action)
                 findNavController().navigateUp()
                 //Snackbar.make(v,"Adios Admin",Snackbar.LENGTH_LONG).show()
                 Snackbar.make(v,"usuario actual ${UsuarioSingleton.getInstance().name}",Snackbar.LENGTH_LONG).show()

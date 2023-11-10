@@ -73,8 +73,20 @@ class LoginFragment : Fragment() {
                         val action = LoginFragmentDirections.actionLoginFragmentToAdminFragment(viewModel.lista2)
                         findNavController().navigate(action)
                     }else{
-                        val action = LoginFragmentDirections.actionLoginFragmentToRutinasFragment3(usuario, clereance = false)
-                        findNavController().navigate(action)
+                        if(viewModel.usuario.password=="password"){
+                            val action = LoginFragmentDirections.actionLoginFragmentToPassFragment(viewModel.usuario,viewModel.lista2)
+                            findNavController().navigate(action)
+
+                        }else{
+                            val action = LoginFragmentDirections.actionLoginFragmentToRutinasFragment3(usuario, clereance = false)
+                            findNavController().navigate(action)
+                        }
+
+                        //val action = LoginFragmentDirections.actionLoginFragmentToRutinasFragment3(usuario, clereance = false)
+                        //findNavController().navigate(action)
+
+
+
                     }
 
 //

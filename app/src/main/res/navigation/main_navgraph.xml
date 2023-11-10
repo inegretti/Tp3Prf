@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_loginFragment_to_rutinasFragment3"
             app:destination="@id/rutinasFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_passFragment"
+            app:destination="@id/passFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -175,5 +178,17 @@
         <action
             android:id="@+id/action_datosUsuarioFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passFragment"
+        android:name="com.example.tp3proyecto.Fragments.PassFragment"
+        android:label="fragment_pass"
+        tools:layout="@layout/fragment_pass" >
+        <argument
+            android:name="usuario"
+            app:argType="com.example.tp3proyecto.Entidades.Usuario" />
+        <argument
+            android:name="repo"
+            app:argType="com.example.tp3proyecto.Repository.Repositorio" />
     </fragment>
 </navigation>
