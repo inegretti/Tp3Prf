@@ -46,20 +46,26 @@ class PassFragment : Fragment() {
         super.onStart()
         var z= PassFragmentArgs.fromBundle(requireArguments())
         btn.setOnClickListener(){
-            if(contrasenia.text.toString()!="password"){
-                if(contrasenia.text.toString()==confirmacion.text.toString()){
-                    //z.usuario.password=contrasenia.text.toString()
-                    z.repo.lista.get(z.repo.lista.indexOf(z.usuario)).password=contrasenia.text.toString()
-                    z.repo.database.collection("users").document(z.usuario.Email).update("password",z.usuario.password).addOnSuccessListener {  }
-                    Snackbar.make(v, "la contraseña ha sido modificada", Snackbar.LENGTH_LONG).show()
-                    findNavController().navigateUp()
+            if(contrasenia.text.isEmpty()){
+                Snackbar.make(v, "Ingrese una contraseña", Snackbar.LENGTH_LONG).show()
+            }else{
+                if(contrasenia.text.toString()!="password"){
+                    if(contrasenia.text.toString()==confirmacion.text.toString()){
+                        //z.usuario.password=contrasenia.text.toString()
+                        z.repo.lista.get(z.repo.lista.indexOf(z.usuario)).password=contrasenia.text.toString()
+                        z.repo.database.collection("users").document(z.usuario.Email).update("password",z.usuario.password).addOnSuccessListener {  }
+                        Snackbar.make(v, "la contraseña ha sido modificada", Snackbar.LENGTH_LONG).show()
+                        findNavController().navigateUp()
+                    }else{
+                        Snackbar.make(v, "la contrasenia y confirmacion no coinciden", Snackbar.LENGTH_LONG).show()
+                    }
+
                 }else{
-                    Snackbar.make(v, "la contrasenia y confirmacion no coinciden", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(v, "por favor cambie la contrasenia", Snackbar.LENGTH_LONG).show()
                 }
 
-            }else{
-                Snackbar.make(v, "por favor cambie la contrasenia", Snackbar.LENGTH_LONG).show()
             }
+
         }
     }
 
