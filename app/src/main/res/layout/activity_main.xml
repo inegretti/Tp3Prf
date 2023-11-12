@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginTop="4dp"
-        android:background="#673AB7"
+        android:background="#E9106DB6"
         app:itemIconTint="@color/white"
         app:itemRippleColor="#FAFAFA"
         app:itemTextColor="#FFFFFF"

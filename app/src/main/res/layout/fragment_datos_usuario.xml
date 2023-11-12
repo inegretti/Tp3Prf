@@ -11,7 +11,7 @@
         android:id="@+id/viewHeaderBackground"
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:background="#FB3362"
+        android:background="#C3D4FF"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

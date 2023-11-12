@@ -9,14 +9,16 @@
 
     <Button
         android:id="@+id/btnRegPes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="164dp"
+        android:layout_height="66dp"
         android:layout_marginStart="159dp"
         android:layout_marginEnd="134dp"
-        android:layout_marginBottom="315dp"
+        android:layout_marginBottom="316dp"
+        android:backgroundTint="#E9106DB6"
         android:text="Registrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.782"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
