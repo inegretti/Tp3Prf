@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.DatosUsuarioFragment">
 
-    <View
-        android:id="@+id/viewHeaderBackground"
-        android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:background="#C3D4FF"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/nombreUsuario"
         android:layout_width="184dp"
@@ -95,14 +88,11 @@
         android:id="@+id/imagenUsuario"
         android:layout_width="159dp"
         android:layout_height="174dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/nombreUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewHeaderBackground"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
     <Button
@@ -110,12 +100,12 @@
         android:layout_width="177dp"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="75dp"
         android:backgroundTint="#E33020"
         android:text="Cerrar Sesion"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pesoUsuario" />
 
