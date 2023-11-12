@@ -59,7 +59,6 @@ class RutinaDetail : Fragment() {
     override fun onStart() {
         super.onStart()
         usuario = UsuarioSingleton.getInstance()
-        //var z=RutinaDetailArgs.fromBundle(requireArguments())
         if(viewModel.z.clearence){
             btn.setVisibility(View.VISIBLE)
 
@@ -68,8 +67,7 @@ class RutinaDetail : Fragment() {
         }
         t.text=usuario.semana[viewModel.z.posicion].nombre
         ejAdap=AdapterEjercicio(viewModel.z.usuario.semana[viewModel.z.posicion].rutina){position->
-            //val rut = z.usuario.semana[position]
-            //Snackbar.make(v, "prueba ${rut.rutina.get(0).nombre}", Snackbar.LENGTH_LONG).show()
+
             var ej= viewModel.z.usuario.semana[viewModel.z.posicion].rutina[position]
 
             val action = RutinaDetailDirections.actionRutinaDetailToEjercicioDetail(viewModel.z.usuario, viewModel.z.clearence, ej, viewModel.z.posicion)
@@ -78,7 +76,6 @@ class RutinaDetail : Fragment() {
         r.layoutManager= LinearLayoutManager(context)
         r.adapter=ejAdap
         btn.setOnClickListener() {
-            Log.d("prueba:","llego hasta el boton")
             val action = RutinaDetailDirections.actionRutinaDetailToAgregarEjercicioFragment2(viewModel.z.usuario,viewModel.z.posicion)
             findNavController().navigate(action)
         }

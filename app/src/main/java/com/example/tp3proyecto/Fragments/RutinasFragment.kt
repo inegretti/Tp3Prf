@@ -58,7 +58,6 @@ class RutinasFragment : Fragment() {
         super.onStart()
         usuario = UsuarioSingleton.getInstance()
         adapterD= AdapterDia(usuario.semana){position->
-            Snackbar.make(v,"posicion ${position}",Snackbar.LENGTH_LONG).show()
             var clear=RutinasFragmentArgs.fromBundle(requireArguments()).clereance
             if(usuario.tieneRutinas(position)) {
                 clereance = true
@@ -67,9 +66,6 @@ class RutinasFragment : Fragment() {
 
                 val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(usuario,position,clear)
                 findNavController().navigate(action)
-//                }else{
-//                    Snackbar.make(v, "no hay rutina registrada", Snackbar.LENGTH_LONG).show()
-//                }
 
 
             }else {

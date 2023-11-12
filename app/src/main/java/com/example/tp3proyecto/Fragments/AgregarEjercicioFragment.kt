@@ -74,18 +74,6 @@ class AgregarEjercicioFragment : Fragment() {
         ingDesc=v.findViewById(R.id.ingDesc)
         btn = v.findViewById(R.id.btnAAR)
 
-/*
-        var op:MutableList<String> = mutableListOf()
-        for (ejercicio in listaC) {
-            op.add(ejercicio.nombre)
-
-        }
-
-        var  adapter:ArrayAdapter<String>
-        adapter = ArrayAdapter<String>(requireActivity(),android.R.layout.simple_spinner_item,op)
-        spin.adapter=adapter
-
- */
         return v
     }
 
@@ -94,9 +82,6 @@ class AgregarEjercicioFragment : Fragment() {
         database.collection("ejercicios").get()
             .addOnSuccessListener {
                 for (Ejercicio in it.toObjects<Ejercicio>()) {
-                    // var ej=Ejercicio(Ejercicio.id.toInt(),Ejercicio.nombre.toString(),Ejercicio.media.toString())
-                    // listaC.add(ej)
-                    Log.d("ejercicio", Ejercicio.nombre)
                     listaC.add(Ejercicio)
                 }
                 var op:MutableList<String> = mutableListOf()

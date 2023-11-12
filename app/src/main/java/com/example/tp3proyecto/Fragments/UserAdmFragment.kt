@@ -72,7 +72,6 @@ class UserAdmFragment : Fragment() {
 
 
             btnRutina.setOnClickListener() {
-                //Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
                 val action =  UserAdmFragmentDirections.actionUserAdmFragmentToRutinasFragment(z.usuario,true)
                 UsuarioSingleton.setUsuario(z.usuario)
                 findNavController().navigate(action)

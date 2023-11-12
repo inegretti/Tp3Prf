@@ -40,23 +40,10 @@ class UserFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-//        var z = UserFragmentArgs.fromBundle(requireArguments())
+
         usuario = UsuarioSingleton.getInstance()
 
         txt.text="Bienvenido ${usuario.name} "
-//        btnRut.setOnClickListener() {
-//            //Snackbar.make(v, "proximamente", Snackbar.LENGTH_LONG).show()
-//
-//            // esto es una pagina de transicion por ello no seria necesario el tener que pasar los datos al view model
-//            val action =  UserFragmentDirections.actionUserFragmentToRutinasFragment(z.usuario,false)
-//            findNavController().navigate(action)
-//            Snackbar.make(v, "En construccion", Snackbar.LENGTH_LONG).show()
-//        }
-//        btnCon.setOnClickListener(){
-//
-//            val action =  UserFragmentDirections.actionUserFragmentToConfigFragment(z.usuario)
-//            findNavController().navigate(action)
-//        }
     }
 
 }

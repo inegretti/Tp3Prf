@@ -103,7 +103,6 @@ class AdminFragment : Fragment() {
                  UsuarioSingleton.setUsuario(usuario)
 
                 findNavController().navigateUp()
-                //Snackbar.make(v,"Adios Admin",Snackbar.LENGTH_LONG).show()
                 Snackbar.make(v,"usuario actual ${UsuarioSingleton.getInstance().name}",Snackbar.LENGTH_LONG).show()
             }
 

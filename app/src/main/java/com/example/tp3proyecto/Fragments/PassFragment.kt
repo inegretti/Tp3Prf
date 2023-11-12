@@ -51,7 +51,6 @@ class PassFragment : Fragment() {
             }else{
                 if(contrasenia.text.toString()!="password"){
                     if(contrasenia.text.toString()==confirmacion.text.toString()){
-                        //z.usuario.password=contrasenia.text.toString()
                         z.repo.lista.get(z.repo.lista.indexOf(z.usuario)).password=contrasenia.text.toString()
                         z.repo.database.collection("users").document(z.usuario.Email).update("password",z.usuario.password).addOnSuccessListener {  }
                         Snackbar.make(v, "la contraseña ha sido modificada", Snackbar.LENGTH_LONG).show()

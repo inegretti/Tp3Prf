@@ -62,7 +62,6 @@ class RegistroPesajeHoyFragment : Fragment() {
                        }
 
                     }
-                    //z.recep.historialPeso.add(RegistroPeso(t,Date(fecha.year,fecha.month.value,fecha.dayOfMonth)))
                     z.recep.historialPeso.add(pos,RegistroPeso(t,dia))
                     database.collection("users").document(z.recep.Email).update("pesoActual",z.recep.pesoActual)
                     database.collection("users").document(z.recep.Email).update("historialPeso",z.recep.historialPeso)

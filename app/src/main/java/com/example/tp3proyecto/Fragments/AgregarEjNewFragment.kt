@@ -54,9 +54,6 @@ class AgregarEjNewFragment : Fragment() {
                     database.collection("ejercicios").document(ej.nombre).set(ej)
                     z.listaEjercicio.listaE.add(Ejercicio(z.listaEjercicio.listaE.size-1,nombre.text.toString().uppercase(),mult.text.toString()))
                     Repositorio.listaC.add(Ejercicio(Repositorio.listaC.size-1,nombre.text.toString().uppercase(),mult.text.toString()))
-                    for (ejercicio in  z.listaEjercicio.listaE) {
-                        Log.d("Ejercicios:",ejercicio.nombre)
-                    }
                     findNavController().navigateUp()
                 } else{
                     Snackbar.make(v,"Ya existe un ejercicio con ese nombre ", Snackbar.LENGTH_LONG).show()

@@ -82,10 +82,6 @@ class LoginFragment : Fragment() {
                             findNavController().navigate(action)
                         }
 
-                        //val action = LoginFragmentDirections.actionLoginFragmentToRutinasFragment3(usuario, clereance = false)
-                        //findNavController().navigate(action)
-
-
 
                     }
 
