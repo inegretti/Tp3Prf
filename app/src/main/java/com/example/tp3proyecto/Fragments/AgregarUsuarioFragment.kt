@@ -49,45 +49,59 @@ class AgregarUsuarioFragment : Fragment() {
         btnIng=v.findViewById(R.id.btnConIng)
         return v
     }
-
     override fun onStart() {
         super.onStart()
-        var z = AdminFragmentArgs.fromBundle(requireArguments())
-        btnIng.setOnClickListener(){
+        val z = AdminFragmentArgs.fromBundle(requireArguments())
 
+        btnIng.setOnClickListener {
+            val nombreValue = nombre.text.toString()
+            val contraseniaValue = contrasenia.text.toString()
+            val confirmacionValue = confirmacionContrasenia.text.toString()
+            val alturaValue = altura.text.toString().toDouble()
+            val pesoValue = peso.text.toString().toDouble()
+            val emailValue = email.text.toString()
 
-            if(nombre.text.isEmpty() || contrasenia.text.isEmpty() || confirmacionContrasenia.text.isEmpty() || altura.text.isEmpty() || peso.text.isEmpty()){
-                Snackbar.make(v,"No puede haber campos vacios", Snackbar.LENGTH_LONG).show()
-            }else{
-            if(peso.text.toString().toDouble()<=10 || altura.text.toString().toDouble()<=1 ){
-                Snackbar.make(v,"la altura no puede ser menor a 1 mt y el peso no pude ser menor a 10", Snackbar.LENGTH_LONG).show()
-                }else{
-                if(z.usuarios.lista.find {it.Email==email.text.toString()} == null){
-                    if(contrasenia.text.toString() == confirmacionContrasenia.text.toString()){
-                        var ej=Usuario((z.usuarios.lista.size-1),nombre.text.toString(),contrasenia.text.toString(),email.text.toString(),"",peso.text.toString().toDouble(),altura.text.toString().toDouble())
-                        z.usuarios.lista.add(ej)
-                        database.collection("users").document(ej.Email).set(ej)
-                        Snackbar.make(v,"Usuario Registrados", Snackbar.LENGTH_LONG).show()
-                        findNavController().navigateUp()
+            if (viewModel.validarCampos(nombreValue, contraseniaValue, confirmacionValue, alturaValue.toString(), pesoValue.toString())) {
+                if (viewModel.validarAlturaPeso(alturaValue, pesoValue)) {
+                    if (!viewModel.usuarioExistente(emailValue, z.usuarios.lista)) {
+                        if (viewModel.contraseniasCoinciden(contraseniaValue, confirmacionValue)) {
+                            if (viewModel.correoVal(emailValue)) {
+                                if (viewModel.passVal(contraseniaValue)) {
+                                    val nuevoUsuario = Usuario(
+                                        z.usuarios.lista.size - 1,
+                                        nombreValue,
+                                        contraseniaValue,
+                                        emailValue,
+                                        "",
+                                        pesoValue,
+                                        alturaValue
+                                    )
 
-
-                    }else{
-                        Snackbar.make(v,"la contrasenia no coincide",
-                            Snackbar.LENGTH_LONG).show()
+                                    z.usuarios.lista.add(nuevoUsuario)
+                                    database.collection("users").document(nuevoUsuario.Email).set(nuevoUsuario)
+                                    Snackbar.make(v, "Usuario registrado", Snackbar.LENGTH_LONG).show()
+                                    findNavController().navigateUp()
+                                } else {
+                                    Snackbar.make(v, "La contraseña debe contener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y números.", Snackbar.LENGTH_LONG).show()
+                                }
+                            } else {
+                                Snackbar.make(v, "Correo electrónico no válido", Snackbar.LENGTH_LONG).show()
+                            }
+                        } else {
+                            Snackbar.make(v, "La contraseña no coincide", Snackbar.LENGTH_LONG).show()
+                        }
+                    } else {
+                        Snackbar.make(v, "Ya existe un usuario registrado con ese correo electrónico", Snackbar.LENGTH_LONG).show()
                     }
-
-                }else{
-                    Snackbar.make(v,"ya existe un usuario registrado con ese mail",
-                        Snackbar.LENGTH_LONG).show()
+                } else {
+                    Snackbar.make(v, "La altura no puede ser menor a 1 metro y el peso no puede ser menor a 10", Snackbar.LENGTH_LONG).show()
                 }
-                }
-
-
+            } else {
+                Snackbar.make(v, "No puede haber campos vacíos", Snackbar.LENGTH_LONG).show()
             }
-
         }
-
     }
+
 
 
 
