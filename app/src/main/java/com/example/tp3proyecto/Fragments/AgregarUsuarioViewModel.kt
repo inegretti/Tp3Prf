@@ -1,14 +1,15 @@
 package com.example.tp3proyecto.Fragments
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.tp3proyecto.Entidades.Usuario
 
 class AgregarUsuarioViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 
-    fun validarCampos(nombre: String, contrasenia: String, confirmacion: String, altura: String, peso: String): Boolean {
-        val camposVacios = listOf(nombre, contrasenia, confirmacion, altura, peso).any { it.isEmpty() }
-
+    fun validarCampos(nombre: String, contrasenia: String, confirmacion: String, altura: String, peso: String, email: String): Boolean {
+        val camposVacios = listOf(nombre, contrasenia, confirmacion, altura, peso, email).any { it.isEmpty() }
+        Log.d("AgregarUsuarioViewModel", "camposVacios: $camposVacios")
         if (camposVacios) {
             return false
         }
