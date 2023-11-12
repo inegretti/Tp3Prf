@@ -1,9 +1,8 @@
 package com.example.tp3proyecto.Fragments
 
 import android.os.Bundle
-import android.os.Handler
 import android.text.Editable
-import androidx.fragment.app.Fragment
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +10,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.tp3proyecto.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.google.android.material.snackbar.Snackbar
+import com.example.tp3proyecto.R
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -23,7 +22,9 @@ class EjercicioDetail : Fragment() {
 
 
     private lateinit var v: View
-    private lateinit var t:TextView
+    private lateinit var ejercicioNombre:TextView
+    private lateinit var ejercicioSeries:TextView
+    private lateinit var ejercicioRepeticiones:TextView
     private lateinit var btn: Button
     private lateinit var btnC: Button
     private lateinit var com:EditText
@@ -36,7 +37,9 @@ class EjercicioDetail : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         v=inflater.inflate(R.layout.fragment_ejercicio_detail, container, false)
-        t=v.findViewById(R.id.ejNom)
+        ejercicioNombre= v.findViewById(R.id.ejercicioNombre)
+        ejercicioSeries= v.findViewById(R.id.ejercicioSeries)
+        ejercicioRepeticiones= v.findViewById(R.id.ejercicioRepeticiones)
         btn= v.findViewById(R.id.btnBajaEj)
         desc=v.findViewById(R.id.descripcion)
         com=v.findViewById(R.id.comentario)
@@ -50,9 +53,12 @@ class EjercicioDetail : Fragment() {
     override fun onStart() {
         super.onStart()
         var z=EjercicioDetailArgs.fromBundle(requireArguments())
-        t.text="Nombre ${z.ejercicio.nombre} Series ${z.ejercicio.series} Repeticiones${z.ejercicio.repeticiones}"
+        ejercicioNombre.text = Html.fromHtml("<u>Nombre:</u> ${z.ejercicio.nombre}")
+        ejercicioSeries.text = Html.fromHtml("<u>Series:</u> ${z.ejercicio.series}")
+        ejercicioRepeticiones.text = Html.fromHtml("<u>Repeticiones:</u> ${z.ejercicio.repeticiones}")
 
-                val imgUrl = z.ejercicio.media
+
+        val imgUrl = z.ejercicio.media
                 val width = imagenDetails.width
                 val height = imagenDetails.height
 
@@ -66,20 +72,15 @@ class EjercicioDetail : Fragment() {
 
 
 
-
-
-
-
-
         desc.text= Editable.Factory.getInstance().newEditable(z.ejercicio.descripcion)
         com.text= Editable.Factory.getInstance().newEditable(z.ejercicio.comentario)
-        if(z.clearence){
+        if (z.clearence){
             btn.setVisibility(View.VISIBLE)
             com.isEnabled=false
             btnC.setVisibility(View.INVISIBLE)
 
 
-        }else{
+        } else {
             btn.setVisibility(View.INVISIBLE)
             desc.isEnabled=false
             if(z.ejercicio.estado){

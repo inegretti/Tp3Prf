@@ -8,17 +8,22 @@
     tools:context=".Fragments.EjercicioDetail">
 
     <TextView
-        android:id="@+id/ejNom"
-        android:layout_width="271dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="177dp"
+        android:id="@+id/ejercicioNombre"
+        android:layout_width="350dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="10dp"
         android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ejercicioSeries"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/comentario"
@@ -54,12 +59,12 @@
         android:id="@+id/imgDetail"
         android:layout_width="168dp"
         android:layout_height="159dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="19dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ejNom"
+        app:layout_constraintTop_toBottomOf="@+id/ejercicioRepeticiones"
         tools:ignore="ContentDescription" />
 
     <Button
@@ -67,10 +72,12 @@
         android:layout_width="164dp"
         android:layout_height="66dp"
         android:layout_marginStart="111dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="120dp"
+        android:layout_marginBottom="1dp"
         android:backgroundTint="#E9106DB6"
         android:text="Confirmar Completo"
+        app:layout_constraintBottom_toTopOf="@+id/btnBajaEj"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,6 +88,7 @@
         android:layout_width="164dp"
         android:layout_height="66dp"
         android:layout_marginStart="137dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="137dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#B52D46"
@@ -90,7 +98,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCom"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/comentario" />
+
+    <TextView
+        android:id="@+id/ejercicioSeries"
+        android:layout_width="145dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="230dp"
+        android:layout_marginBottom="5dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/ejercicioRepeticiones"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ejercicioNombre" />
+
+    <TextView
+        android:id="@+id/ejercicioRepeticiones"
+        android:layout_width="145dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="230dp"
+        android:layout_marginBottom="20dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ejercicioSeries" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

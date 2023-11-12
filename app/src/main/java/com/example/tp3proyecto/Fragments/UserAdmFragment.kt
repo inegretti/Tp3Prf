@@ -1,13 +1,13 @@
 package com.example.tp3proyecto.Fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.example.tp3proyecto.R
@@ -48,7 +48,7 @@ class UserAdmFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         var z = UserAdmFragmentArgs.fromBundle(requireArguments())
-        nombreText.text="${z.usuario.name}"
+        nombreText.text=Html.fromHtml("<u>${z.usuario.name}</u>")
         pesoAlturaText.text = "Peso actual: ${z.usuario.pesoActual}kg    Altura: ${z.usuario.altura}mts"
         contraseniaText.text = "Contraseña: ${z.usuario.password}"
         emailText.text = "Email: ${z.usuario.Email}"
