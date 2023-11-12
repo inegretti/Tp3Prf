@@ -117,7 +117,6 @@ class AdminFragment : Fragment() {
         btnIng.setOnClickListener(){
             val action = AdminFragmentDirections.actionAdminFragmentToAgregarUsuarioFragment(z.usuarios)
             findNavController().navigate(action)
-            Snackbar.make(v,"funciona el boton ",Snackbar.LENGTH_LONG).show()
         }
 
 
