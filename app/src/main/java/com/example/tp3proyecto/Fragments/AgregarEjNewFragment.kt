@@ -42,26 +42,28 @@ class AgregarEjNewFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        btn.setOnClickListener(){
-            var z = AgregarEjNewFragmentArgs.fromBundle(requireArguments())
-            if(nombre.text.isEmpty()||mult.text.isEmpty()){
-                Snackbar.make(v,"Complete todos los campos ", Snackbar.LENGTH_LONG).show()
+        btn.setOnClickListener {
+            val z = AgregarEjNewFragmentArgs.fromBundle(requireArguments())
+            val nombreValue = nombre.text.toString().uppercase()
+            val multValue = mult.text.toString()
 
-            }else{
-                if(z.listaEjercicio.listaE.find {it.nombre==nombre.text.toString().uppercase()} == null){
+            val viewModel = ViewModelProvider(this).get(AgregarEjNewViewModel::class.java)
 
-                    var ej=Ejercicio(z.listaEjercicio.listaE.size,nombre.text.toString().uppercase(),mult.text.toString())
-                    database.collection("ejercicios").document(ej.nombre).set(ej)
-                    z.listaEjercicio.listaE.add(Ejercicio(z.listaEjercicio.listaE.size-1,nombre.text.toString().uppercase(),mult.text.toString()))
-                    Repositorio.listaC.add(Ejercicio(Repositorio.listaC.size-1,nombre.text.toString().uppercase(),mult.text.toString()))
+            if (viewModel.validarCampos(nombreValue, multValue)) {
+                if (!viewModel.ejercicioExistente(nombreValue, z.listaEjercicio.listaE)) {
+                    val nuevoEjercicio = Ejercicio(z.listaEjercicio.listaE.size, nombreValue, multValue)
+                    database.collection("ejercicios").document(nuevoEjercicio.nombre).set(nuevoEjercicio)
+                    z.listaEjercicio.listaE.add(nuevoEjercicio)
+                    Repositorio.listaC.add(nuevoEjercicio)
                     findNavController().navigateUp()
-                } else{
-                    Snackbar.make(v,"Ya existe un ejercicio con ese nombre ", Snackbar.LENGTH_LONG).show()
+                } else {
+                    Snackbar.make(v, "Ya existe un ejercicio con ese nombre", Snackbar.LENGTH_LONG).show()
                 }
-
+            } else {
+                Snackbar.make(v, "Complete todos los campos", Snackbar.LENGTH_LONG).show()
             }
-
         }
     }
+
 
 }

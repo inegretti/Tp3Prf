@@ -57,12 +57,12 @@ class AgregarUsuarioFragment : Fragment() {
             val nombreValue = nombre.text.toString()
             val contraseniaValue = contrasenia.text.toString()
             val confirmacionValue = confirmacionContrasenia.text.toString()
-            val alturaValue = altura.text.toString().toDouble()
-            val pesoValue = peso.text.toString().toDouble()
+            val alturaValue = altura.text.toString()
+            val pesoValue = peso.text.toString()
             val emailValue = email.text.toString()
 
-            if (viewModel.validarCampos(nombreValue, contraseniaValue, confirmacionValue, alturaValue.toString(), pesoValue.toString())) {
-                if (viewModel.validarAlturaPeso(alturaValue, pesoValue)) {
+            if (viewModel.validarCampos(nombreValue, contraseniaValue, confirmacionValue, alturaValue.toString(), pesoValue.toString(), emailValue.toString())) {
+                if (viewModel.validarAlturaPeso(alturaValue.toDouble(), pesoValue.toDouble())) {
                     if (!viewModel.usuarioExistente(emailValue, z.usuarios.lista)) {
                         if (viewModel.contraseniasCoinciden(contraseniaValue, confirmacionValue)) {
                             if (viewModel.correoVal(emailValue)) {
@@ -73,8 +73,8 @@ class AgregarUsuarioFragment : Fragment() {
                                         contraseniaValue,
                                         emailValue,
                                         "",
-                                        pesoValue,
-                                        alturaValue
+                                        pesoValue.toDouble(),
+                                        alturaValue.toDouble()
                                     )
 
                                     z.usuarios.lista.add(nuevoUsuario)
