@@ -29,12 +29,16 @@ class AgregarUsuarioFragment : Fragment() {
     private lateinit var altura:EditText
     private lateinit var btnIng:Button
     val database = Firebase.firestore
+    private lateinit var viewModel: AgregarUsuarioViewModel
+
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProvider(this).get(AgregarUsuarioViewModel::class.java)
+
         v= inflater.inflate(R.layout.fragment_agregar_usuario, container, false)
         nombre=v.findViewById(R.id.ingNom)
         email=v.findViewById(R.id.ingEmail)
