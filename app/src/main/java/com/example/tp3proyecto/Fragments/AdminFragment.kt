@@ -123,8 +123,7 @@ class AdminFragment : Fragment() {
         btnIANE.setOnClickListener(){
             val action = AdminFragmentDirections.actionAdminFragmentToAgregarEjNewFragment(z.usuarios)
             findNavController().navigate(action)
-            Snackbar.make(v,"funciona el boton ",Snackbar.LENGTH_LONG).show()
-        }
+            }
 
     }
 
