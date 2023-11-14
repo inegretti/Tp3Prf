@@ -1,9 +1,6 @@
 package com.example.tp3proyecto.Fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,31 +8,25 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.Ejercicio
-import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.R
-import com.example.tp3proyecto.Repository.Repositorio
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 
 class AgregarEjercicioFragment : Fragment() {
-
-
 
     private lateinit var v: View
     private lateinit var spin:Spinner
     private lateinit var ingRep:TextView
     private lateinit var ingSer:TextView
     private lateinit var ingDesc:TextView
-    private lateinit var btn:Button
+    private lateinit var btnAgregar:Button
     //var rep:Repositorio = Repositorio
-    var listaC= mutableListOf<Ejercicio>()
+    var listaEjercicios= mutableListOf<Ejercicio>()
     val database = Firebase.firestore
 
 
@@ -61,8 +52,6 @@ class AgregarEjercicioFragment : Fragment() {
 */
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -72,7 +61,7 @@ class AgregarEjercicioFragment : Fragment() {
         ingRep=v.findViewById(R.id.ingRep)
         ingSer=v.findViewById(R.id.ingSer)
         ingDesc=v.findViewById(R.id.ingDesc)
-        btn = v.findViewById(R.id.btnAAR)
+        btnAgregar = v.findViewById(R.id.btnAgregar)
 
         return v
     }
@@ -82,14 +71,14 @@ class AgregarEjercicioFragment : Fragment() {
         database.collection("ejercicios").get()
             .addOnSuccessListener {
                 for (Ejercicio in it.toObjects<Ejercicio>()) {
-                    listaC.add(Ejercicio)
+                    listaEjercicios.add(Ejercicio)
                 }
                 var op:MutableList<String> = mutableListOf()
-                for (ejercicio in listaC) {
+                for (ejercicio in listaEjercicios) {
                     op.add(ejercicio.nombre)
 
                 }
-                var  adapter:ArrayAdapter<String>
+                var adapter:ArrayAdapter<String>
                 adapter = ArrayAdapter<String>(requireActivity(),android.R.layout.simple_spinner_item,op)
                 spin.adapter=adapter
 
@@ -97,9 +86,8 @@ class AgregarEjercicioFragment : Fragment() {
 
 
 
-
         var z = AgregarEjercicioFragmentArgs.fromBundle(requireArguments())
-        btn.setOnClickListener() {
+        btnAgregar.setOnClickListener() {
             if (ingSer.text.isEmpty() || ingSer.text.isEmpty() || ingDesc.text.isEmpty()) {
                 Snackbar.make(
                     v,
@@ -107,7 +95,7 @@ class AgregarEjercicioFragment : Fragment() {
                     Snackbar.LENGTH_LONG
                 ).show()
             } else {
-                var obj = listaC.find { it.nombre == spin.selectedItem.toString() }
+                var obj = listaEjercicios.find { it.nombre == spin.selectedItem.toString() }
 
                 if (obj != null) {
                     var copia:Ejercicio
@@ -128,7 +116,6 @@ class AgregarEjercicioFragment : Fragment() {
                 }
 
             }
-
 
         }
     }

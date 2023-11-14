@@ -32,13 +32,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="34dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAGR"
+        app:layout_constraintBottom_toTopOf="@+id/btnAgregarEj"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloRutinaDetail" />
 
     <Button
-        android:id="@+id/btnAGR"
+        android:id="@+id/btnAgregarEj"
         android:layout_width="219dp"
         android:layout_height="64dp"
         android:layout_marginStart="133dp"

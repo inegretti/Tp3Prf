@@ -23,12 +23,11 @@ class AdminFragment : Fragment() {
     lateinit var v:View
     lateinit var r:RecyclerView
     lateinit var adapter:AdapterUsuario
-    lateinit var btn:Button
-    lateinit var btnIng:Button
-    lateinit var btnIANE:Button
+    lateinit var btnCerrarSesion:Button
+    lateinit var btnAltaUsuario:Button
+    lateinit var btnAltaEjercicio:Button
     lateinit var searchView: SearchView
     lateinit var usuariosOriginal: List<Usuario>
-
 
 
     override fun onCreateView(
@@ -37,9 +36,9 @@ class AdminFragment : Fragment() {
     ): View? {
         v= inflater.inflate(R.layout.fragment_admin, container, false)
         r=v.findViewById(R.id.adminView)
-        btn=v.findViewById(R.id.btnLgAd)
-        btnIng=v.findViewById(R.id.btnIngUs)
-        btnIANE=v.findViewById(R.id.btnIANE)
+        btnCerrarSesion=v.findViewById(R.id.btnLgAd)
+        btnAltaUsuario=v.findViewById(R.id.btnIngUs)
+        btnAltaEjercicio=v.findViewById(R.id.btnIANE)
         searchView = v.findViewById(R.id.searchView)
 
         return v
@@ -83,7 +82,7 @@ class AdminFragment : Fragment() {
         })
 
 
-        btn.setOnClickListener(){
+        btnCerrarSesion.setOnClickListener(){
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Cerrar sesión")
             builder.setMessage("¿Está seguro que desea cerrar sesión?")
@@ -114,13 +113,13 @@ class AdminFragment : Fragment() {
             dialog.show()
         }
 
-        btnIng.setOnClickListener(){
+        btnAltaUsuario.setOnClickListener(){
             val action = AdminFragmentDirections.actionAdminFragmentToAgregarUsuarioFragment(z.usuarios)
             findNavController().navigate(action)
         }
 
 
-        btnIANE.setOnClickListener(){
+        btnAltaEjercicio.setOnClickListener(){
             val action = AdminFragmentDirections.actionAdminFragmentToAgregarEjNewFragment(z.usuarios)
             findNavController().navigate(action)
             }

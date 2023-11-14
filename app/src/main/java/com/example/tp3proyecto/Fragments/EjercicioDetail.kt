@@ -22,14 +22,13 @@ import com.google.firebase.ktx.Firebase
 
 class EjercicioDetail : Fragment() {
 
-
     private lateinit var v: View
     private lateinit var ejercicioNombre:TextView
     private lateinit var ejercicioSeries:TextView
     private lateinit var ejercicioRepeticiones:TextView
-    private lateinit var btn: Button
-    private lateinit var btnC: Button
-    private lateinit var com:EditText
+    private lateinit var btnEliminaEj: Button
+    private lateinit var btnCompletoEj: Button
+    private lateinit var comentario:EditText
     private lateinit var imagenDetails : ImageView
     private lateinit var desc:EditText
     val database = Firebase.firestore
@@ -42,10 +41,10 @@ class EjercicioDetail : Fragment() {
         ejercicioNombre= v.findViewById(R.id.ejercicioNombre)
         ejercicioSeries= v.findViewById(R.id.ejercicioSeries)
         ejercicioRepeticiones= v.findViewById(R.id.ejercicioRepeticiones)
-        btn= v.findViewById(R.id.btnBajaEj)
+        btnEliminaEj= v.findViewById(R.id.btnBajaEj)
         desc=v.findViewById(R.id.descripcion)
-        com=v.findViewById(R.id.comentario)
-        btnC=v.findViewById(R.id.btnCom)
+        comentario=v.findViewById(R.id.comentario)
+        btnCompletoEj=v.findViewById(R.id.btnCom)
         imagenDetails=v.findViewById(R.id.imgDetail)
 
 
@@ -75,37 +74,37 @@ class EjercicioDetail : Fragment() {
 
 
         desc.text= Editable.Factory.getInstance().newEditable(z.ejercicio.descripcion)
-        com.text= Editable.Factory.getInstance().newEditable(z.ejercicio.comentario)
+        comentario.text= Editable.Factory.getInstance().newEditable(z.ejercicio.comentario)
         if (z.clearence){
-            btn.setVisibility(View.VISIBLE)
-            com.isEnabled=false
-            btnC.setVisibility(View.INVISIBLE)
+            btnEliminaEj.setVisibility(View.VISIBLE)
+            comentario.isEnabled=false
+            btnCompletoEj.setVisibility(View.INVISIBLE)
 
 
         } else {
-            btn.setVisibility(View.INVISIBLE)
+            btnEliminaEj.setVisibility(View.INVISIBLE)
             desc.isEnabled=false
             if(z.ejercicio.estado){
-                btnC.text="Actualizar comentario"
+                btnCompletoEj.text="Actualizar comentario"
             }else{
 
             }
         }
 
-        btn.setOnClickListener {
-            mostrarDialogoConfirmacion()
+        btnEliminaEj.setOnClickListener {
+            mostrarPreguntaConfirmacion()
         }
 
-        btnC.setOnClickListener(){
+        btnCompletoEj.setOnClickListener(){
             z.ejercicio.estado=true
             z.ejercicio.descripcion=desc.text.toString()
-            z.ejercicio.comentario=com.text.toString()
+            z.ejercicio.comentario=comentario.text.toString()
             database.collection("users").document(z.usuario.Email).update("semana",z.usuario.semana).addOnSuccessListener {  }
             findNavController().navigateUp()
         }
     }
 
-    private fun mostrarDialogoConfirmacion() {
+    private fun mostrarPreguntaConfirmacion() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Eliminar Ejercicio")
         builder.setMessage("¿Está seguro que desea eliminar este ejercicio?")
@@ -130,7 +129,5 @@ class EjercicioDetail : Fragment() {
         Snackbar.make(v, "El ejercicio ha sido eliminado", Snackbar.LENGTH_LONG).show()
         findNavController().navigateUp()
     }
-
-
 
 }

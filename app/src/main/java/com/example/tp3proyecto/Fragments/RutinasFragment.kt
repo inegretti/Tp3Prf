@@ -1,11 +1,11 @@
 package com.example.tp3proyecto.Fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,14 +15,13 @@ import com.example.tp3proyecto.Entidades.Usuario
 import com.example.tp3proyecto.Entidades.UsuarioSingleton
 import com.example.tp3proyecto.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.snackbar.Snackbar
 
 class RutinasFragment : Fragment() {
 
-    lateinit var v: View
-    lateinit var d:RecyclerView
+    lateinit var v:View
+    lateinit var recyclerDias:RecyclerView
     lateinit var adapterD:AdapterDia
-    lateinit var tit:TextView
+    lateinit var titulo:TextView
 
     private lateinit var viewModel: RutinasViewModel
     private lateinit var usuario: Usuario
@@ -38,15 +37,14 @@ class RutinasFragment : Fragment() {
     }
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         v = inflater.inflate(R.layout.fragment_rutinas, container, false)
-        d=v.findViewById(R.id.dias)
-        tit=v.findViewById(R.id.rutTit)
-        tit.text="Semana XXX"
+        recyclerDias=v.findViewById(R.id.dias)
+        titulo=v.findViewById(R.id.rutTit)
+        titulo.text="Semana XXX"
 
         val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_bar)
         bottomNavigationView?.visibility = View.VISIBLE
@@ -62,8 +60,6 @@ class RutinasFragment : Fragment() {
             if(usuario.tieneRutinas(position)) {
                 clereance = true
 
-
-
                 val action =  RutinasFragmentDirections.actionRutinasFragmentToRutinaDetail(usuario,position,clear)
                 findNavController().navigate(action)
 
@@ -75,8 +71,8 @@ class RutinasFragment : Fragment() {
             }
 
         }
-        d.layoutManager=LinearLayoutManager(context)
-        d.adapter=adapterD
+        recyclerDias.layoutManager=LinearLayoutManager(context)
+        recyclerDias.adapter=adapterD
 
     }
 }

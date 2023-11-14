@@ -1,13 +1,13 @@
 package com.example.tp3proyecto.Fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.R
 import com.google.android.material.snackbar.Snackbar
@@ -21,7 +21,7 @@ class PassFragment : Fragment() {
     lateinit var v: View
     lateinit var contrasenia: EditText
     lateinit var confirmacion: EditText
-    lateinit var btn: Button
+    lateinit var btnConfirmacion: Button
 
     private lateinit var viewModel: PassViewModel
 
@@ -32,7 +32,7 @@ class PassFragment : Fragment() {
         v= inflater.inflate(R.layout.fragment_pass, container, false)
         contrasenia=v.findViewById(R.id.newPass)
         confirmacion=v.findViewById(R.id.ConfPass)
-        btn=v.findViewById(R.id.btnPassCh)
+        btnConfirmacion=v.findViewById(R.id.btnPassCh)
         return v
     }
 
@@ -45,7 +45,7 @@ class PassFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         var z= PassFragmentArgs.fromBundle(requireArguments())
-        btn.setOnClickListener(){
+        btnConfirmacion.setOnClickListener(){
             if(contrasenia.text.isEmpty()){
                 Snackbar.make(v, "Ingrese una contraseña", Snackbar.LENGTH_LONG).show()
             }else{
@@ -67,5 +67,4 @@ class PassFragment : Fragment() {
 
         }
     }
-
 }

@@ -1,12 +1,12 @@
 package com.example.tp3proyecto.Fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.tp3proyecto.Entidades.Usuario
@@ -20,7 +20,7 @@ class LoginFragment : Fragment() {
     lateinit var v: View
     lateinit var email: EditText
     lateinit var contraseña: EditText
-    lateinit var btn: Button
+    lateinit var btnIngreso: Button
     //var lista2:Repositorio=Repositorio()
     private lateinit var viewModel: LoginViewModel
 
@@ -41,7 +41,7 @@ class LoginFragment : Fragment() {
         v = inflater.inflate(R.layout.fragment_login, container, false)
         email = v.findViewById(R.id.email)
         contraseña = v.findViewById(R.id.contraseña)
-        btn = v.findViewById(R.id.button2)
+        btnIngreso = v.findViewById(R.id.ingreso)
 
         val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_bar)
         bottomNavigationView?.visibility = View.GONE
@@ -59,7 +59,7 @@ class LoginFragment : Fragment() {
 */
     override fun onStart() {
         super.onStart()
-        btn.setOnClickListener() {
+    btnIngreso.setOnClickListener() {
             var usuario = viewModel.validarUs(email.text.toString(),contraseña.text.toString())
             var e:String= email.text.toString()
             if(viewModel.usuario.Email!="email@example.com"){
@@ -82,9 +82,7 @@ class LoginFragment : Fragment() {
                             findNavController().navigate(action)
                         }
 
-
                     }
-
 //
                 }else{
                     Snackbar.make(v, "contraseña incorrecta", Snackbar.LENGTH_LONG).show()
@@ -97,9 +95,6 @@ class LoginFragment : Fragment() {
 
 
         }
-
-
-
 
         }
 
