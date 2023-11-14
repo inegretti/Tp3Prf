@@ -56,7 +56,7 @@ class AdapterEjercicio(var lista: MutableList<Ejercicio>, var onClick: (Int) -> 
                 Color.parseColor("#2a9c48")
             )
         }else{
-            holder.getCard().setCardBackgroundColor(Color.parseColor("#702018"))
+            holder.getCard().setCardBackgroundColor(Color.parseColor("#fa7e78"))
         }
 
         holder.setEjercicio(nombre, series, repeticiones, estado)
