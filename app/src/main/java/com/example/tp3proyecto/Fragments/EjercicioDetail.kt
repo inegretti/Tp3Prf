@@ -1,5 +1,6 @@
 package com.example.tp3proyecto.Fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.Html
@@ -15,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.tp3proyecto.R
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -90,10 +92,8 @@ class EjercicioDetail : Fragment() {
             }
         }
 
-        btn.setOnClickListener() {
-                z.usuario.semana[z.posicion].rutina.remove(z.ejercicio)
-            database.collection("users").document(z.usuario.Email).update("semana",z.usuario.semana).addOnSuccessListener {  }
-                findNavController().navigateUp()
+        btn.setOnClickListener {
+            mostrarDialogoConfirmacion()
         }
 
         btnC.setOnClickListener(){
@@ -104,5 +104,33 @@ class EjercicioDetail : Fragment() {
             findNavController().navigateUp()
         }
     }
+
+    private fun mostrarDialogoConfirmacion() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Eliminar Ejercicio")
+        builder.setMessage("¿Está seguro que desea eliminar este ejercicio?")
+
+        builder.setPositiveButton("Sí") { dialog, which ->
+            eliminarEjercicio()
+        }
+
+        builder.setNegativeButton("No") { dialog, which ->
+            dialog.dismiss()
+        }
+
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
+    private fun eliminarEjercicio() {
+        val z = EjercicioDetailArgs.fromBundle(requireArguments())
+        z.usuario.semana[z.posicion].rutina.remove(z.ejercicio)
+        database.collection("users").document(z.usuario.Email).update("semana", z.usuario.semana)
+            .addOnSuccessListener {  }
+        Snackbar.make(v, "El ejercicio ha sido eliminado", Snackbar.LENGTH_LONG).show()
+        findNavController().navigateUp()
+    }
+
+
 
 }

@@ -66,6 +66,7 @@
         android:gravity="start|top"
         android:hint="Comentario"
         android:inputType="textMultiLine"
+        android:textColor="#020202"
         app:layout_constraintBottom_toTopOf="@+id/btnIngNewEj"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

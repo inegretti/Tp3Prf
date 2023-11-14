@@ -1,5 +1,6 @@
 package com.example.tp3proyecto.Fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Html
 import android.view.LayoutInflater
@@ -16,8 +17,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class UserAdmFragment : Fragment() {
-
-
 
     private lateinit var v: View
     private lateinit var nombreText:TextView
@@ -53,13 +52,10 @@ class UserAdmFragment : Fragment() {
         contraseniaText.text = "Contraseña: ${z.usuario.password}"
         emailText.text = "Email: ${z.usuario.Email}"
 
-        btn.setOnClickListener(){
-            z.lista.lista.remove(z.usuario)
-            database.collection("users").document(z.usuario.Email).delete()
-            Snackbar.make(v,"El usuario ha sido removido", Snackbar.LENGTH_LONG).show()
-            findNavController().navigateUp()
-
+        btn.setOnClickListener {
+            mostrarDialogoConfirmacion()
         }
+
 
         btnR.setOnClickListener(){
             var pos=z.lista.lista.indexOf(z.usuario)
@@ -79,4 +75,31 @@ class UserAdmFragment : Fragment() {
             }
 
     }
+
+    private fun mostrarDialogoConfirmacion() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Dar de baja")
+        builder.setMessage("¿Está seguro que desea dar de baja a este usuario?")
+
+        builder.setPositiveButton("Sí") { dialog, which ->
+            darDeBajaUsuario()
+        }
+
+        builder.setNegativeButton("No") { dialog, which ->
+            dialog.dismiss()
+        }
+
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
+    private fun darDeBajaUsuario() {
+        val z = UserAdmFragmentArgs.fromBundle(requireArguments())
+        z.lista.lista.remove(z.usuario)
+        database.collection("users").document(z.usuario.Email).delete()
+        Snackbar.make(v, "El usuario ha sido dado de baja", Snackbar.LENGTH_LONG).show()
+        findNavController().navigateUp()
+    }
+
+
 }
