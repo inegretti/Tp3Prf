@@ -1,7 +1,6 @@
 package com.example.tp3proyecto.Adapters
 
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,9 +25,6 @@ class AdapterEjercicio(var lista: MutableList<Ejercicio>, var onClick: (Int) -> 
             seriesTextView.text = series
             repeticionesTextView.text = repeticiones
             estadoTextView.text = estado
-            seriesTextView.setTextColor(Color.BLACK)
-            repeticionesTextView.setTextColor(Color.BLACK)
-            estadoTextView.setTextColor(Color.BLACK)
         }
 
         fun getCard(): CardView {
@@ -51,13 +47,7 @@ class AdapterEjercicio(var lista: MutableList<Ejercicio>, var onClick: (Int) -> 
         val series = "Series: ${ejercicio.series}     "
         val repeticiones = "Repeticiones: ${ejercicio.repeticiones}"
         val estado = if (ejercicio.estado) "Estado: Completo" else "Estado: Incompleto"
-        if(ejercicio.estado){
-            holder.getCard().setCardBackgroundColor(
-                Color.parseColor("#2a9c48")
-            )
-        }else{
-            holder.getCard().setCardBackgroundColor(Color.parseColor("#fa7e78"))
-        }
+        val color = if (ejercicio.estado) Color.parseColor("#2a9c48") else Color.parseColor("#fa7e78")
 
         holder.setEjercicio(nombre, series, repeticiones, estado)
 

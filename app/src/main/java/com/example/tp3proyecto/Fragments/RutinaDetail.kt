@@ -57,26 +57,37 @@ class RutinaDetail : Fragment() {
     override fun onStart() {
         super.onStart()
         usuario = UsuarioSingleton.getInstance()
-        if(viewModel.z.clearence){
-            btnAgregar.setVisibility(View.VISIBLE)
+        setupVisibilityBtnAgregar()
+    }
 
-        }else{
-            btnAgregar.setVisibility(View.INVISIBLE)
+    private fun setupVisibilityBtnAgregar() {
+        if (viewModel.z.clearence) {
+            btnAgregar.visibility = View.VISIBLE
+        } else {
+            btnAgregar.visibility = View.INVISIBLE
         }
-        titulo.text=usuario.semana[viewModel.z.posicion].nombre
-        ejAdap=AdapterEjercicio(viewModel.z.usuario.semana[viewModel.z.posicion].rutina){position->
 
-            var ej= viewModel.z.usuario.semana[viewModel.z.posicion].rutina[position]
+        titulo.text = usuario.semana[viewModel.z.posicion].nombre
+        setupRecyclerView()
 
+        btnAgregar.setOnClickListener {
+            navigateToAddEjercicio()
+        }
+    }
+
+    private fun setupRecyclerView() {
+        ejAdap = AdapterEjercicio(viewModel.z.usuario.semana[viewModel.z.posicion].rutina) { position ->
+            val ej = viewModel.z.usuario.semana[viewModel.z.posicion].rutina[position]
             val action = RutinaDetailDirections.actionRutinaDetailToEjercicioDetail(viewModel.z.usuario, viewModel.z.clearence, ej, viewModel.z.posicion)
             findNavController().navigate(action)
         }
-        r.layoutManager= LinearLayoutManager(context)
-        r.adapter=ejAdap
-        btnAgregar.setOnClickListener() {
-            val action = RutinaDetailDirections.actionRutinaDetailToAgregarEjercicioFragment2(viewModel.z.usuario,viewModel.z.posicion)
-            findNavController().navigate(action)
-        }
+        r.layoutManager = LinearLayoutManager(context)
+        r.adapter = ejAdap
+    }
+
+    private fun navigateToAddEjercicio() {
+        val action = RutinaDetailDirections.actionRutinaDetailToAgregarEjercicioFragment2(viewModel.z.usuario, viewModel.z.posicion)
+        findNavController().navigate(action)
     }
 
 }
