@@ -15,25 +15,21 @@ class AdapterUsuario(var lista: MutableList<Usuario>, var onClick: (Int) -> Unit
     class UsuarioHolder(v: View) : RecyclerView.ViewHolder(v) {
         var s: View = v
 
-        // Establece el nombre del usuario en negrita
         fun setNombreUsuario(nombreUsuario: String) {
             val txtNombreUsuario: TextView = s.findViewById(R.id.textNombreUsuario)
             txtNombreUsuario.text = nombreUsuario
         }
 
-        // Establece el email del usuario
         fun setEmailUsuario(email: String) {
             val txtEmailUsuario: TextView = s.findViewById(R.id.textEmailUsuario)
             txtEmailUsuario.text = "Email: $email"
         }
 
-        // Establece la contraseña del usuario
         fun setContraseniaUsuario(contrasenia: String) {
             val txtContraseniaUsuario: TextView = s.findViewById(R.id.textContraseniaUsuario)
             txtContraseniaUsuario.text = "Contraseña: $contrasenia"
         }
 
-        // Establece el peso y la altura del usuario en la misma línea
         fun setPesoAlturaUsuario(peso: Double, altura: Double) {
             val txtPesoAlturaUsuario: TextView = s.findViewById(R.id.textPesoUsuario)
             txtPesoAlturaUsuario.text = "Peso: $peso kg Altura: $altura mts"
