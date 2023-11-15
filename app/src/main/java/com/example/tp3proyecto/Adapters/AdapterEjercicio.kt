@@ -47,7 +47,13 @@ class AdapterEjercicio(var lista: MutableList<Ejercicio>, var onClick: (Int) -> 
         val series = "Series: ${ejercicio.series}     "
         val repeticiones = "Repeticiones: ${ejercicio.repeticiones}"
         val estado = if (ejercicio.estado) "Estado: Completo" else "Estado: Incompleto"
-        val color = if (ejercicio.estado) Color.parseColor("#2a9c48") else Color.parseColor("#fa7e78")
+        if(ejercicio.estado){
+            holder.getCard().setCardBackgroundColor(
+                Color.parseColor("#2a9c48")
+            )
+        }else{
+            holder.getCard().setCardBackgroundColor(Color.parseColor("#fa7e78"))
+        }
 
         holder.setEjercicio(nombre, series, repeticiones, estado)
 
